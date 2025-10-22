@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目代码展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <style>
+        .code-container {
+            position: relative;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .code-header {
+            background: #2d3748;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .code-title {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+        
+        .copy-button {
+            background: #4a5568;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .copy-button:hover {
+            background: #2d3748;
+        }
+        
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 1.5rem;
+            background: #1a202c;
+        }
+        
+        .project-section {
+            scroll-margin-top: 80px;
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.5s ease;
+        }
+        
+        .fade-enter-from,
+        .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="app">
+        <!-- 导航栏 -->
+        <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        项目代码展示
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#ecommerce" class="text-gray-700 hover:text-purple-600 transition">电商平台</a>
+                        <a href="#taskmanager" class="text-gray-700 hover:text-purple-600 transition">任务管理系统</a>
+                        <a href="#socialapp" class="text-gray-700 hover:text-purple-600 transition">社交应用</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 电商平台代码展示 -->
+        <section id="ecommerce" class="project-section min-h-screen pt-20 pb-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">电商平台</h2>
+                
+                <div class="flex justify-center mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-1 flex">
+                        <button 
+                            v-for="(tab, index) in ecommerceTabs" 
+                            :key="index"
+                            @click="activeEcommerceTab = index"
+                            :class="['tab-button px-6 py-2 rounded-md', { active: activeEcommerceTab === index }]">
+                            {{ tab.name }}
+                        </button>
+                    </div>
+                </div>
+
+                <transition name="fade" mode="out-in">
+                    <div :key="activeEcommerceTab">
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span class="code-title">{{ ecommerceTabs[activeEcommerceTab].fileName }}</span>
+                                <button @click="copyCode(ecommerceTabs[activeEcommerceTab].code)" class="copy-button">
+                                    复制代码
+                                </button>
+                            </div>
+                            <pre><code class="language-javascript">{{ ecommerceTabs[activeEcommerceTab].code }}</code></pre>
+                        </div>
+                    </div>
+                </transition>
+            </div>
+        </section>
+
+        <!-- 任务管理系统代码展示 -->
+        <section id="taskmanager" class="project-section min-h-screen pt-20 pb-12 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">任务管理系统</h2>
+                
+                <div class="flex justify-center mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-1 flex">
+                        <button 
+                            v-for="(tab, index) in taskManagerTabs" 
+                            :key="index"
+                            @click="activeTaskManagerTab = index"
+                            :class="['tab-button px-6 py-2 rounded-md', { active: activeTaskManagerTab === index }]">
+                            {{ tab.name }}
+                        </button>
+                    </div>
+                </div>
+
+                <transition name="fade" mode="out-out">
+                    <div :key="activeTaskManagerTab">
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span class="code-title">{{ taskManagerTabs[activeTaskManagerTab].fileName }}</span>
+                                <button @click="copyCode(taskManagerTabs[activeTaskManagerTab].code)" class="copy-button">
+                                    复制代码
+                                </button>
+                            </div>
+                            <pre><code class="language-javascript">{{ taskManagerTabs[activeTaskManagerTab].code }}</code></pre>
+                        </div>
+                    </div>
+                </transition>
+            </div>
+        </section>
+
+        <!-- 社交应用代码展示 -->
+        <section id="socialapp" class="project-section min-h-screen pt-20 pb-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">社交应用</h2>
+                
+                <div class="flex justify-center mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-1 flex">
+                        <button 
+                            v-for="(tab, index) in socialAppTabs" 
+                            :key="index"
+                            @click="activeSocialAppTab = index"
+                            :class="['tab-button px-6 py-2 rounded-md', { active: activeSocialAppTab === index }]">
+                            {{ tab.name }}
+                        </button>
+                    </div>
+                </div>
+
+                <transition name="fade" mode="out-in">
+                    <div :key="activeSocialAppTab">
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span class="code-title">{{ socialAppTabs[activeSocialAppTab].fileName }}</span>
+                                <button @click="copyCode(socialAppTabs[activeSocialAppTab].code)" class="copy-button">
+                                    复制代码
+                                </button>
+                            </div>
+                            <pre><code class="language-python">{{ socialAppTabs[activeSocialAppTab].code }}</code></pre>
+                        </div>
+                    </div>
+                </transition>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    activeEcommerceTab: 0,
+                    activeTaskManagerTab: 0,
+                    activeSocialAppTab: 0,
+                    ecommerceTabs: [
+                        {
+                            name: '商品列表组件',
+                            fileName: 'ProductList.vue',
+                            code: `<template>
+  <div class="product-list">
+    ...
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useProductStore } from '@/stores/products'
+
+const productStore = useProductStore()
+const products = ref([])
+
+onMounted(async () => {
+  products.value = await productStore.fetchProducts()
+})
+
+const addToCart = (product) => {
+  productStore.addToCart(product)
+  // 显示添加成功提示
+}
+<\/script>`
+
+                        },
+                        {
+                            name: '购物车状态管理',
+                            fileName: 'cartStore.js',
+                            code: `import { defineStore } from 'pinia'
+
+export const useCartStore = defineStore('cart', {
+  state: () => ({
+    items: [],
+    total: 0
+  }),
+  
+  getters: {
+    itemCount: (state) => {
+      return state.items.reduce((total, item) => total + item.quantity, 0)
+    },
+    
+    totalPrice: (state) => {
+      return state.items.reduce((total, item) => {
+        return total + (item.price * item.quantity)
+      }, 0)
+    }
+  },
+  
+  actions: {
+    addToCart(product) {
+      const existingItem = this.items.find(item => item.id === product.id)
+      
+      if (existingItem) {
+        existingItem.quantity++
+      } else {
+        this.items.push({
+          ...product,
+          quantity: 1
+        })
+      }
+      
+      this.calculateTotal()
+    },
+    
+    removeFromCart(productId) {
+      const index = this.items.findIndex(item => item.id === productId)
+      if (index > -1) {
+        this.items.splice(index, 1)
+        this.calculateTotal()
+      }
+    },
+    
+    updateQuantity(productId, quantity) {
+      const item = this.items.find(item => item.id === productId)
+      if (item) {
+        item.quantity = quantity
+        this.calculateTotal()
+      }
+    },
+    
+    calculateTotal() {
+      this.total = this.totalPrice
+    },
+    
+    clearCart() {
+      this.items = []
+      this.total = 0
+    }
+  }
+})`
+                        },
+                        {
+                            name: '订单处理API',
+                            fileName: 'orderController.js',
+                            code: `const Order = require('../models/Order')
+const Product = require('../models/Product')
+const { validationResult } = require('express-validator')
+
+exports.createOrder = async (req, res) => {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() })
+    }
+
+    const { cartItems, shippingAddress, paymentMethod } = req.body
+
+    // 计算订单总金额
+    let totalAmount = 0
+    const orderItems = []
+
+    for (const item of cartItems) {
+      const product = await Product.findById(item.productId)
+      if (!product) {
+        return res.status(404).json({ message: '商品不存在' })
+      }
+
+      if (product.stock < item.quantity) {
+        return res.status(400).json({ message: '商品库存不足' })
+      }
+
+      orderItems.push({
+        product: product._id,
+        quantity: item.quantity,
+        price: product.price
+      })
+
+      totalAmount += product.price * item.quantity
+
+      // 更新商品库存
+      product.stock -= item.quantity
+      await product.save()
+    }
+
+    // 创建订单
+    const order = new Order({
+      user: req.user.id,
+      items: orderItems,
+      shippingAddress,
+      paymentMethod,
+      totalAmount,
+      status: 'pending'
+    })
+
+    await order.save()
+
+    res.status(201).json({
+      message: '订单创建成功',
+      order
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: '服务器错误' })
+  }
+}
+
+exports.getOrderHistory = async (req, res) => {
+  try {
+    const orders = await Order.find({ user: req.user.id })
+      .populate('items.product', 'name image')
+      .sort({ createdAt: -1 })
+
+    res.json(orders)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: '服务器错误' })
+  }
+}`
+                        }
+                    ],
+                    taskManagerTabs: [
+                        {
+                            name: '任务组件',
+                            fileName: 'TaskItem.vue',
+                            code: `<template>
+  <div class="task-item bg-white rounded-lg shadow p-4 mb-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <input 
+          type="checkbox" 
+          :checked="task.completed"
+          @change="toggleTask"
+          class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500"
+        >
+        <div>
+          <h3 :class="{'line-through text-gray-500': task.completed}" 
+              class="font-semibold">
+            {{ task.title }}
+          </h3>
+          <p class="text-sm text-gray-600">{{ task.description }}</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span :class="priorityClass" class="px-2 py-1 rounded text-xs">
+          {{ task.priority }}
+        </span>
+        <button @click="deleteTask" 
+                class="text-red-500 hover:text-red-700">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mt-3 flex items-center justify-between text-sm text-gray-500">
+      <div class="flex items-center space-x-4">
+        <span><i class="far fa-calendar"></i> {{ formatDate(task.dueDate) }}</span>
+        <span><i class="far fa-user"></i> {{ task.assignee }}</span>
+      </div>
+      <div class="flex space-x-2">
+        <span v-for="tag in task.tags" 
+              :key="tag" 
+              class="bg-gray-100 px-2 py-1 rounded">
+          {{ tag }}
+        </span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { computed } from 'vue'
+import { useTaskStore } from '@/stores/tasks'
+
+const props = defineProps({
+  task: {
+    type: Object,
+    required: true
+  }
+})
+
+const taskStore = useTaskStore()
+
+const priorityClass = computed(() => {
+  const classes = {
+    high: 'bg-red-100 text-red-600',
+    medium: 'bg-yellow-100 text-yellow-600',
+    low: 'bg-green-100 text-green-600'
+  }
+  return classes[props.task.priority]
+})
+
+const toggleTask = () => {
+  taskStore.toggleTask(props.task.id)
+}
+
+const deleteTask = () => {
+  taskStore.deleteTask(props.task.id)
+}
+
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('zh-CN')
+}
+</script>`
+                        },
+                        {
+                            name: '任务状态管理',
+                            fileName: 'taskStore.js',
+                            code: `import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+
+export const useTaskStore = defineStore('tasks', () => {
+  const tasks = ref([])
+  const filter = ref('all')
+  const searchQuery = ref('')
+
+  const filteredTasks = computed(() => {
+    let filtered = tasks.value
+
+    // 应用过滤器
+    if (filter.value !== 'all') {
+      filtered = filtered.filter(task => {
+        if (filter.value === 'completed') return task.completed
+        if (filter.value === 'pending') return !task.completed
+        return task.priority === filter.value
+      })
+    }
+
+    // 应用搜索
+    if (searchQuery.value) {
+      const query = searchQuery.value.toLowerCase()
+      filtered = filtered.filter(task => 
+        task.title.toLowerCase().includes(query) ||
+        task.description.toLowerCase().includes(query) ||
+        task.tags.some(tag => tag.toLowerCase().includes(query))
+      )
+    }
+
+    return filtered.sort((a, b) => {
+      // 按优先级和截止日期排序
+      const priorityOrder = { high: 3, medium: 2, low: 1 }
+      if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
+        return priorityOrder[b.priority] - priorityOrder[a.priority]
+      }
+      return new Date(a.dueDate) - new Date(b.dueDate)
+    })
+  })
+
+  const addTask = (task) => {
+    const newTask = {
+      id: Date.now(),
+      ...task,
+      completed: false,
+      createdAt: new Date().toISOString()
+    }
+    tasks.value.push(newTask)
+  }
+
+  const toggleTask = (taskId) => {
+    const task = tasks.value.find(t => t.id === taskId)
+    if (task) {
+      task.completed = !task.completed
+    }
+  }
+
+  const updateTask = (taskId, updates) => {
+    const index = tasks.value.findIndex(t => t.id === taskId)
+    if (index !== -1) {
+      tasks.value[index] = { ...tasks.value[index], ...updates }
+    }
+  }
+
+  const deleteTask = (taskId) => {
+    const index = tasks.value.findIndex(t => t.id === taskId)
+    if (index !== -1) {
+      tasks.value.splice(index, 1)
+    }
+  }
+
+  return {
+    tasks,
+    filter,
+    searchQuery,
+    filteredTasks,
+    addTask,
+    toggleTask,
+    updateTask,
+    deleteTask
+  }
+})`
+                        },
+                        {
+                            name: '任务API路由',
+                            fileName: 'taskRoutes.js',
+                            code: `const express = require('express')
+const router = express.Router()
+const Task = require('../models/Task')
+const auth = require('../middleware/auth')
+const { body, validationResult } = require('express-validator')
+
+// 获取所有任务
+router.get('/', auth, async (req, res) => {
+  try {
+    const { status, priority, page = 1, limit = 10 } = req.query
+    
+    const query = { user: req.user.id }
+    
+    if (status) query.status = status
+    if (priority) query.priority = priority
+
+    const tasks = await Task.find(query)
+      .sort({ createdAt: -1 })
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      .populate('assignee', 'name email')
+
+    const total = await Task.countDocuments(query)
+
+    res.json({
+      tasks,
+      totalPages: Math.ceil(total / limit),
+      currentPage: page
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: '服务器错误' })
+  }
+})
+
+// 创建新任务
+router.post('/', [
+  auth,
+  body('title').notEmpty().withMessage('标题不能为空'),
+  body('description').notEmpty().withMessage('描述不能为空'),
+  body('priority').isIn(['high', 'medium', 'low']).withMessage('无效的优先级'),
+  body('dueDate').isISO8601().withMessage('无效的日期格式')
+], async (req, res) => {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() })
+    }
+
+    const task = new Task({
+      ...req.body,
+      user: req.user.id
+    })
+
+    await task.save()
+    await task.populate('assignee', 'name email')
+
+    res.status(201).json(task)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: '服务器错误' })
+  }
+})
+
+// 更新任务
+router.put('/:id', auth, async (req, res) => {
+  try {
+    const task = await Task.findOneAndUpdate(
+      { _id: req.params.id, user: req.user.id },
+      req.body,
+      { new: true }
+    ).populate('assignee', 'name email')
+
+    if (!task) {
+      return res.status(404).json({ message: '任务不存在' })
+    }
+
+    res.json(task)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: '服务器错误' })
+  }
+})
+
+// 删除任务
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const task = await Task.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user.id
+    })
+
+    if (!task) {
+      return res.status(404).json({ message: '任务不存在' })
+    }
+
+    res.json({ message: '任务已删除' })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: '服务器错误' })
+  }
+})
+
+module.exports = router`
+                        }
+                    ],
+                    socialAppTabs: [
+                        {
+                            name: '实时聊天处理器',
+                            fileName: 'chat_handler.py',
+                            code: `import asyncio
+import json
+from datetime import datetime
+from typing import Dict, List, Set
+from fastapi import WebSocket, WebSocketDisconnect
+
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: Dict[str, Set[WebSocket]] = {}
+        self.user_sockets: Dict[WebSocket, str] = {}
+
+    async def connect(self, websocket: WebSocket, user_id: str):
+        await websocket.accept()
+        if user_id not in self.active_connections:
+            self.active_connections[user_id] = set()
+        self.active_connections[user_id].add(websocket)
+        self.user_sockets[websocket] = user_id
+        await self.broadcast_user_status(user_id, "online")
+
+    def disconnect(self, websocket: WebSocket):
+        user_id = self.user_sockets.get(websocket)
+        if user_id:
+            self.active_connections[user_id].discard(websocket)
+            if not self.active_connections[user_id]:
+                del self.active_connections[user_id]
+            del self.user_sockets[websocket]
+            asyncio.create_task(self.broadcast_user_status(user_id, "offline"))
+
+    async def send_personal_message(self, message: str, websocket: WebSocket):
+        await websocket.send_text(message)
+
+    async def broadcast_user_status(self, user_id: str, status: str):
+        message = {
+            "type": "user_status",
+            "user_id": user_id,
+            "status": status,
+            "timestamp": datetime.now().isoformat()
+        }
+        await self.broadcast(json.dumps(message))
+
+    async def broadcast(self, message: str):
+        for connections in self.active_connections.values():
+            for connection in connections:
+                try:
+                    await connection.send_text(message)
+                except:
+                    pass
+
+manager = ConnectionManager()
+
+async def handle_chat(websocket: WebSocket, user_id: str):
+    await manager.connect(websocket, user_id)
+    try:
+        while True:
+            data = await websocket.receive_text()
+            message = json.loads(data)
+            
+            if message["type"] == "chat":
+                chat_message = {
+                    "type": "chat",
+                    "sender": user_id,
+                    "recipient": message["recipient"],
+                    "content": message["content"],
+                    "timestamp": datetime.now().isoformat()
+                }
+                
+                # 发送给接收者
+                if message["recipient"] in manager.active_connections:
+                    for connection in manager.active_connections[message["recipient"]]:
+                        await manager.send_personal_message(
+                            json.dumps(chat_message),
+                            connection
+                        )
+                
+                # 发送给发送者（用于确认）
+                await manager.send_personal_message(
+                    json.dumps(chat_message),
+                    websocket
+                )
+                
+            elif message["type"] == "typing":
+                typing_message = {
+                    "type": "typing",
+                    "user": user_id,
+                    "is_typing": message["is_typing"],
+                    "recipient": message["recipient"]
+                }
+                
+                if message["recipient"] in manager.active_connections:
+                    for connection in manager.active_connections[message["recipient"]]:
+                        await manager.send_personal_message(
+                            json.dumps(typing_message),
+                            connection
+                        )
+
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)
+    except Exception as e:
+        print(f"Error in chat handler: {e}")
+        manager.disconnect(websocket)`
+                        },
+                        {
+                            name: '动态发布处理器',
+                            fileName: 'post_handler.py',
+                            code: `from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
+from sqlalchemy.orm import Session
+from typing import List, Optional
+import shutil
+import os
+from datetime import datetime
+
+from ..database import get_db
+from ..models.post import Post
+from ..models.user import User
+from ..schemas.post import PostCreate, PostResponse
+from ..auth import get_current_user
+from ..utils.image import process_image
+
+router = APIRouter(prefix="/posts", tags=["posts"])
+
+@router.post("/", response_model=PostResponse)
+async def create_post(
+    content: str,
+    images: Optional[List[UploadFile]] = File(None),
+    tags: Optional[str] = None,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    try:
+        # 创建新动态
+        post = Post(
+            content=content,
+            user_id=current_user.id,
+            created_at=datetime.now()
+        )
+        
+        # 处理标签
+        if tags:
+            post.tags = [tag.strip() for tag in tags.split(",")]
+        
+        # 处理图片
+        if images:
+            image_urls = []
+            for image in images:
+                # 验证图片类型
+                if not image.content_type.startswith('image/'):
+                    raise HTTPException(
+                        status_code=400,
+                        detail="只能上传图片文件"
+                    )
+                
+                # 保存图片
+                file_path = f"uploads/posts/{current_user.id}/{datetime.now().timestamp()}_{image.filename}"
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                
+                with open(file_path, "wb") as buffer:
+                    shutil.copyfileobj(image.file, buffer)
+                
+                # 处理图片（压缩、生成缩略图等）
+                processed_urls = await process_image(file_path)
+                image_urls.extend(processed_urls)
+            
+            post.images = image_urls
+        
+        db.add(post)
+        db.commit()
+        db.refresh(post)
+        
+        return post
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/", response_model=List[PostResponse])
+def get_posts(
+    skip: int = 0,
+    limit: int = 10,
+    tag: Optional[str] = None,
+    db: Session = Depends(get_db)
+):
+    query = db.query(Post)
+    
+    if tag:
+        query = query.filter(Post.tags.contains([tag]))
+    
+    posts = query.order_by(Post.created_at.desc()).offset(skip).limit(limit).all()
+    return posts
+
+@router.get("/{post_id}", response_model=PostResponse)
+def get_post(post_id: int, db: Session = Depends(get_db)):
+    post = db.query(Post).filter(Post.id == post_id).first()
+    if not post:
+        raise HTTPException(status_code=404, detail="动态不存在")
+    return post
+
+@router.put("/{post_id}", response_model=PostResponse)
+async def update_post(
+    post_id: int,
+    content: Optional[str] = None,
+    images: Optional[List[UploadFile]] = File(None),
+    tags: Optional[str] = None,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    post = db.query(Post).filter(Post.id == post_id).first()
+    if not post:
+        raise HTTPException(status_code=404, detail="动态不存在")
+    
+    if post.user_id != current_user.id:
+        raise HTTPException(status_code=403, detail="无权修改此动态")
+    
+    try:
+        if content is not None:
+            post.content = content
+        
+        if tags is not None:
+            post.tags = [tag.strip() for tag in tags.split(",")]
+        
+        if images:
+            # 删除旧图片
+            if post.images:
+                for image_url in post.images:
+                    if os.path.exists(image_url):
+                        os.remove(image_url)
+            
+            # 上传新图片
+            image_urls = []
+            for image in images:
+                if not image.content_type.startswith('image/'):
+                    raise HTTPException(
+                        status_code=400,
+                        detail="只能上传图片文件"
+                    )
+                
+                file_path = f"uploads/posts/{current_user.id}/{datetime.now().timestamp()}_{image.filename}"
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                
+                with open(file_path, "wb") as buffer:
+                    shutil.copyfileobj(image.file, buffer)
+                
+                processed_urls = await process_image(file_path)
+                image_urls.extend(processed_urls)
+            
+            post.images = image_urls
+        
+        post.updated_at = datetime.now()
+        db.commit()
+        db.refresh(post)
+        
+        return post
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/{post_id}")
+def delete_post(
+    post_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    post = db.query(Post).filter(Post.id == post_id).first()
+    if not post:
+        raise HTTPException(status_code=404, detail="动态不存在")
+    
+    if post.user_id != current_user.id:
+        raise HTTPException(status_code=403, detail="无权删除此动态")
+    
+    try:
+        # 删除相关图片
+        if post.images:
+            for image_url in post.images:
+                if os.path.exists(image_url):
+                    os.remove(image_url)
+        
+        db.delete(post)
+        db.commit()
+        
+        return {"message": "动态已删除"}
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))`
+                        },
+                        {
+                            name: '用户关系管理',
+                            fileName: 'relationship_handler.py',
+                            code: `from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+from typing import List
+
+from ..database import get_db
+from ..models.user import User
+from ..models.relationship import Relationship, RelationshipType
+from ..schemas.relationship import RelationshipResponse
+from ..auth import get_current_user
+
+router = APIRouter(prefix="/relationships", tags=["relationships"])
+
+@router.post("/follow/{user_id}")
+async def follow_user(
+    user_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if user_id == current_user.id:
+        raise HTTPException(status_code=400, detail="不能关注自己")
+    
+    target_user = db.query(User).filter(User.id == user_id).first()
+    if not target_user:
+        raise HTTPException(status_code=404, detail="用户不存在")
+    
+    # 检查是否已经关注
+    existing_relationship = db.query(Relationship).filter(
+        Relationship.follower_id == current_user.id,
+        Relationship.following_id == user_id
+    ).first()
+    
+    if existing_relationship:
+        raise HTTPException(status_code=400, detail="已经关注该用户")
+    
+    # 创建关注关系
+    relationship = Relationship(
+        follower_id=current_user.id,
+        following_id=user_id,
+        type=RelationshipType.FOLLOW
+    )
+    
+    db.add(relationship)
+    
+    # 更新用户的关注数和粉丝数
+    current_user.following_count += 1
+    target_user.followers_count += 1
+    
+    db.commit()
+    
+    return {"message": "关注成功"}
+
+@router.delete("/unfollow/{user_id}")
+async def unfollow_user(
+    user_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    relationship = db.query(Relationship).filter(
+        Relationship.follower_id == current_user.id,
+        Relationship.following_id == user_id
+    ).first()
+    
+    if not relationship:
+        raise HTTPException(status_code=404, detail="未关注该用户")
+    
+    target_user = db.query(User).filter(User.id == user_id).first()
+    
+    # 删除关注关系
+    db.delete(relationship)
+    
+    # 更新用户的关注数和粉丝数
+    current_user.following_count -= 1
+    target_user.followers_count -= 1
+    
+    db.commit()
+    
+    return {"message": "取消关注成功"}
+
+@router.get("/followers", response_model=List[RelationshipResponse])
+def get_followers(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    followers = db.query(Relationship).filter(
+        Relationship.following_id == current_user.id
+    ).all()
+    
+    return followers
+
+@router.get("/following", response_model=List[RelationshipResponse])
+def get_following(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    following = db.query(Relationship).filter(
+        Relationship.follower_id == current_user.id
+    ).all()
+    
+    return following
+
+@router.get("/mutual/{user_id}", response_model=List[RelationshipResponse])
+def get_mutual_followers(
+    user_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    # 获取当前用户和目标用户的共同关注
+    current_following = db.query(Relationship.following_id).filter(
+        Relationship.follower_id == current_user.id
+    ).subquery()
+    
+    target_following = db.query(Relationship.following_id).filter(
+        Relationship.follower_id == user_id
+    ).subquery()
+    
+    mutual_following = db.query(Relationship).filter(
+        Relationship.following_id.in_(current_following),
+        Relationship.following_id.in_(target_following)
+    ).all()
+    
+    return mutual_following
+
+@router.post("/block/{user_id}")
+async def block_user(
+    user_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if user_id == current_user.id:
+        raise HTTPException(status_code=400, detail="不能屏蔽自己")
+    
+    target_user = db.query(User).filter(User.id == user_id).first()
+    if not target_user:
+        raise HTTPException(status_code=404, detail="用户不存在")
+    
+    # 检查是否已经屏蔽
+    existing_block = db.query(Relationship).filter(
+        Relationship.follower_id == current_user.id,
+        Relationship.following_id == user_id,
+        Relationship.type == RelationshipType.BLOCK
+    ).first()
+    
+    if existing_block:
+        raise HTTPException(status_code=400, detail="已经屏蔽该用户")
+    
+    # 如果存在关注关系，先取消关注
+    existing_follow = db.query(Relationship).filter(
+        Relationship.follower_id == current_user.id,
+        Relationship.following_id == user_id,
+        Relationship.type == RelationshipType.FOLLOW
+    ).first()
+    
+    if existing_follow:
+        db.delete(existing_follow)
+        current_user.following_count -= 1
+        target_user.followers_count -= 1
+    
+    # 创建屏蔽关系
+    block = Relationship(
+        follower_id=current_user.id,
+        following_id=user_id,
+        type=RelationshipType.BLOCK
+    )
+    
+    db.add(block)
+    db.commit()
+    
+    return {"message": "屏蔽成功"}
+
+@router.delete("/unblock/{user_id}")
+async def unblock_user(
+    user_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    block = db.query(Relationship).filter(
+        Relationship.follower_id == current_user.id,
+        Relationship.following_id == user_id,
+        Relationship.type == RelationshipType.BLOCK
+    ).first()
+    
+    if not block:
+        raise HTTPException(status_code=404, detail="未屏蔽该用户")
+    
+    db.delete(block)
+    db.commit()
+    
+    return {"message": "取消屏蔽成功"}`
+                        }
+                    ]
+                }
+            },
+            methods: {
+                copyCode(code) {
+                    navigator.clipboard.writeText(code).then(() => {
+                        // 可以添加复制成功的提示
+                        console.log('代码已复制到剪贴板');
+                    });
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

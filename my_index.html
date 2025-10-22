@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 张三</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        * {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end);
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+        }
+        
+        .dark-mode .text-gray-600 {
+            color: #cbd5e0;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" :class="{ 'dark-mode': isDarkMode }">
+        <!-- 导航栏 -->
+        <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">Portfolio</div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 transition">首页</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 transition">关于</a>
+                        <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 transition">技能</a>
+                        <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600 transition">项目</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 transition">联系</a>
+                    </div>
+                    <button @click="toggleDarkMode" class="text-gray-700 hover:text-purple-600 transition">
+                        <i :class="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 首页部分 -->
+        <section id="home" class="min-h-screen flex items-center gradient-bg">
+            <div class="container mx-auto px-6 py-20">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 text-white" data-aos="fade-right">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                            你好，我是<br>
+                            <span class="typing-effect">张三</span>
+                        </h1>
+                        <p class="text-xl mb-8 opacity-90">全栈开发工程师 | 创意设计师</p>
+                        <div class="flex space-x-4">
+                            <a href="#contact" class="bg-white text-purple-600 px-6 py-3 rounded-full hover:bg-gray-100 transition">
+                                联系我
+                            </a>
+                            <a href="#projects" class="border-2 border-white px-6 py-3 rounded-full hover:bg-white hover:text-purple-600 transition">
+                                查看作品
+                            </a>
+                        </div>
+                        <div class="flex space-x-4 mt-8">
+                            <a href="#" class="text-white hover:text-gray-200 transition">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-gray-200 transition">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-gray-200 transition">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 mt-10 md:mt-0" data-aos="fade-left">
+                        <img src="https://picsum.photos/seed/avatar/500/500" alt="Profile" class="rounded-full floating">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于部分 -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">关于我</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://picsum.photos/seed/about/600/400" alt="About" class="rounded-lg shadow-lg">
+                    </div>
+                        <div data-aos="fade-left">
+                        <h3 class="text-2xl font-semibold mb-4">热爱编程，追求创新</h3>
+                        <p class="text-gray-600 mb-6">
+                            我是一名充满激情的全栈开发工程师，拥有5年的开发经验。专注于创建优雅、高效的Web应用程序。
+                            我相信好的代码不仅要能运行，更要易于维护和扩展。
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                <span>响应式设计</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                <span>用户体验优化</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                <span>性能优化</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                <span>敏捷开发</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能部分 -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">技能专长</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div v-for="skill in skills" :key="skill.name" class="bg-white p-6 rounded-lg shadow-lg card-hover" data-aos="fade-up">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">{{ skill.name }}</span>
+                            <span class="text-purple-600">{{ skill.level }}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="skill-bar gradient-bg h-3 rounded-full" :style="{ width: skill.level + '%' }"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目展示 -->
+        <section id="projects" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">项目展示</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div v-for="project in projects" :key="project.id" class="bg-white rounded-lg overflow-hidden shadow-lg card-hover" data-aos="fade-up">
+                        <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+                            <p class="text-gray-600 mb-4">{{ project.description }}</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span v-for="tag in project.tags" :key="tag" class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
+                                    {{ tag }}
+                                </span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a :href="project.demo" class="text-purple-600 hover:text-purple-700">
+                                    <i class="fas fa-external-link-alt"></i> 演示
+                                </a>
+                                <a :href="project.github" class="text-gray-600 hover:text-gray-700">
+                                    <i class="fab fa-github"></i> 源码
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系方式 -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">联系我</h2>
+                <div class="max-w-2xl mx-auto">
+                    <form @submit.prevent="submitForm" class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                                姓名
+                            </label>
+                            <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500" 
+                                   id="name" type="text" v-model="form.name" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                邮箱
+                            </label>
+                            <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500" 
+                                   id="email" type="email" v-model="form.email" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                                留言
+                            </label>
+                            <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500" 
+                                      id="message" rows="4" v-model="form.message" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full gradient-bg text-white py-3 rounded-lg hover:opacity-90 transition">
+                            发送消息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 音乐控制器 -->
+        <div class="music-control">
+            <button @click="toggleMusic" class="bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 transition">
+                <i :class="isPlaying ? 'fas fa-pause' : 'fas fa-play'"></i>
+            </button>
+            <audio ref="bgMusic" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="bg-gray-900 text-white py-8">
+            <div class="container mx-auto px-6 text-center">
+                <p>&copy; 2024 张三的个人简历. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    isDarkMode: false,
+                    isPlaying: false,
+                    form: {
+                        name: '',
+                        email: '',
+                        message: ''
+                    },
+                    skills: [
+                        { name: 'JavaScript', level: 90 },
+                        { name: 'Vue.js', level: 85 },
+                        { name: 'React', level: 80 },
+                        { name: 'Node.js', level: 75 },
+                        { name: 'Python', level: 70 },
+                        { name: 'UI/UX Design', level: 85 }
+                    ],
+                    projects: [
+                        {
+                            id: 1,
+                            title: '电商平台',
+                            description: '一个功能完整的电商平台，包含商品展示、购物车、订单管理等功能。',
+                            image: 'https://picsum.photos/seed/project1/400/300',
+                            tags: ['Vue.js', 'Node.js', 'MongoDB'],
+                            demo: '#',
+                            github: '#'
+                        },
+                        {
+                            id: 2,
+                            title: '任务管理系统',
+                            description: '帮助团队高效协作的任务管理工具，支持任务分配、进度跟踪等功能。',
+                            image: 'https://picsum.photos/seed/project2/400/300',
+                            tags: ['React', 'Express', 'PostgreSQL'],
+                            demo: '#',
+                            github: '#'
+                        },
+                        {
+                            id: 3,
+                            title: '社交媒体应用',
+                            description: '一个现代化的社交媒体应用，支持实时聊天、动态发布等功能。',
+                            image: 'https://picsum.photos/seed/project3/400/300',
+                            tags: ['Vue.js', 'Socket.io', 'Redis'],
+                            demo: '#',
+                            github: '#'
+                        }
+                    ]
+                }
+            },
+            mounted() {
+                AOS.init({
+                    duration: 1000,
+                    once: true
+                });
+                
+                // 添加滚动监听
+                window.addEventListener('scroll', this.handleScroll);
+            },
+            methods: {
+                toggleDarkMode() {
+                    this.isDarkMode = !this.isDarkMode;
+                },
+                toggleMusic() {
+                    const audio = this.$refs.bgMusic;
+                    if (this.isPlaying) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                    }
+                    this.isPlaying = !this.isPlaying;
+                },
+                submitForm() {
+                    // 这里可以添加表单提交逻辑
+                    alert('感谢您的留言！我会尽快回复您。');
+                    this.form = {
+                        name: '',
+                        email: '',
+                        message: ''
+                    };
+                },
+                handleScroll() {
+                    const nav = document.querySelector('nav');
+                    if (window.scrollY > 50) {
+                        nav.classList.add('shadow-lg');
+                    } else {
+                        nav.classList.remove('shadow-lg');
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
