@@ -196,92 +196,182 @@
 <div class="body-bg" style="background-image: url(static/image/body-bg.png);"></div>
 
 <div class="page-wrapper">
-  
+    
     <!-- Preloader -->
     <div class="preloader"><div class="icon"></div></div>
 
-    <!-- Site Container-->
-    <div class="site-container">
-
-        <div class="mode-switch">
-            <div class="switcher clearfix">
-                <div class="left-text">Weekend Mode</div>
-                <div class="switch-btn"><div class="btn-inner"><div class="circle"></div><div class="txt">OFF</div></div><a href="weekend-mode.html"></a></div>
+    <!-- 现代化顶部导航 -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-user-circle"></i>
+                <span>Graham Walker</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home-section" class="active">首页</a></li>
+                <li><a href="#resume-section">简历</a></li>
+                <li><a href="#work-section">作品</a></li>
+                <li><a href="#stories-section">故事</a></li>
+                <li><a href="#contact-section">联系</a></li>
+            </ul>
+            
+            <div class="header-actions">
+                <button class="btn btn-primary">
+                    <i class="fas fa-download"></i>
+                    下载简历
+                </button>
             </div>
         </div>
+    </header>
 
-        <div class="auto-container">
-            <div class="mobile-header">
-                <div class="inner">
-                    <div class="logo-side">
-                        <div class="image-box">
-                            <div class="image"><img src="static/picture/image-1.jpg" alt=""></div>
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 个人简介区域 -->
+            <section class="section" id="home-section">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <div class="profile-image">
+                            <img src="static/picture/image-1.jpg" alt="Graham Walker" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
                         </div>
-                        <div class="info">
-                            <div class="name">Graham Walker</div>
-                            <div class="designation">App Developer</div>
+                        <div class="mt-3">
+                            <h3>Graham Walker</h3>
+                            <p class="text-muted">应用开发工程师</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="text-primary me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                                <a href="#" class="text-primary me-3"><i class="fab fa-github fa-lg"></i></a>
+                                <a href="#" class="text-primary me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="social-links">
-                        <div class="social-btn"><i class="icon">+</i></div>
-                        <ul class="links clearfix">
-                            <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                            <li><a href="#"><span class="fab fa-twitter-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa-linkedin"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="nav-toggler"><img src="static/picture/menu-icon.png" alt=""></div>
-                </div>
-            </div>
-            <div class="site-content-container row clearfix">
-                <!--Left Bar-->
-                <div class="left-bar sticky-top col-xl-3 col-lg-4 col-md-12">
-                    <div class="left-inner">
-                        <div class="nav-toggler"><img src="static/picture/close-icon.png" alt=""></div>
-                        <div class="left-upper">
-                            <div class="image-box">
-                                <div class="image"><img src="static/picture/image-1.jpg" alt=""></div>
-                                <div class="social-links">
-                                    <div class="social-btn"><i class="icon">+</i></div>
-                                    <ul class="links clearfix">
-                                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-twitter-square"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-linkedin"></span></a></li>
-                                    </ul>
+                    <div class="col-md-8">
+                        <h2 class="section-title">欢迎来到我的个人空间</h2>
+                        <p class="lead">我是一名热爱技术的应用开发工程师，专注于创建优秀的用户体验和高质量的软件解决方案。</p>
+                        <p>拥有丰富的全栈开发经验，擅长将创意转化为现实。我相信技术的力量可以改变世界，让生活变得更美好。</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <h5><i class="fas fa-map-marker-alt text-primary me-2"></i> 位置</h5>
+                                    <p>美国，加利福尼亚</p>
                                 </div>
                             </div>
-                            <div class="info">
-                                <div class="name">Graham Walker</div>
-                                <div class="designation"><i class="dot"></i> App Developer</div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <h5><i class="fas fa-envelope text-primary me-2"></i> 邮箱</h5>
+                                    <p>graham.walker@email.com</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="left-lower">
-                            <nav class="main-nav">
-                                <ul class="navigation scroll-nav">
-                                    <li class="home current"><a href="#home-section">Home</a></li>
-                                    <li class="resume"><a href="#resume-section">Resume</a></li>
-                                    <li class="work"><a href="#work-section">Work</a></li>
-                                    <li class="stories"><a href="#stories-section">Stories</a></li>
-                                    <li class="contact"><a href="#contact-section">Contact</a></li>
-                                </ul>
-                            </nav>
                         </div>
                     </div>
                 </div>
-                <!--Right Content-->
-                <div class="right-content col-xl-9 col-lg-8 col-md-12">
-                    <div class="right-inner">
-                        <div class="content-container">
-                            <div class="home-content" id="home-section">
-                                <!---Download CV-->
-                                <div class="download-cv"><a href="#" class="theme-btn download-btn"><i class="icon"><img src="static/picture/cv-1.png" alt=""></i><span class="txt">Downlod CV</span></a></div>
-                                <!--Welcome-->
-                                <div class="welcome">
-                                    <h4>Hello and Welcome</h4>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                </div>
+            </section>
+
+            <!-- 技能展示 -->
+            <section class="section">
+                <h2 class="section-title">专业技能</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="skill-item">
+                            <div class="d-flex justify-content-between">
+                                <span>WordPress</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="d-flex justify-content-between">
+                                <span>Photoshop</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="d-flex justify-content-between">
+                                <span>HTML/CSS</span>
+                                <span>97%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 97%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="skill-item">
+                            <div class="d-flex justify-content-between">
+                                <span>JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="d-flex justify-content-between">
+                                <span>React</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="d-flex justify-content-between">
+                                <span>Node.js</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 专业领域 -->
+            <section class="section">
+                <h2 class="section-title">专业领域</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h5>UI/UX 设计</h5>
+                            <p>创建直观、美观的用户界面和用户体验设计</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h5>移动应用开发</h5>
+                            <p>开发高性能的iOS和Android移动应用程序</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h5>Web 开发</h5>
+                            <p>构建响应式、高性能的网站和Web应用</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
                                 <!--About Me-->
                                 <div class="about-me">
