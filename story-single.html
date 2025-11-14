@@ -1,246 +1,450 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Graham Walker - Post Single</title>
-<!-- Stylesheets -->
-<link href="static/css/bootstrap.css" rel="stylesheet">
-<link href="static/css/style.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link href="static/css/responsive.css" rel="stylesheet">
-</head>
-
-<body>
-
-<div class="body-bg" style="background-image: url(static/image/body-bg.png);"></div>
-
-<div class="page-wrapper">
+<template>
+  <div class="body-bg" role="img" aria-label="Background pattern"></div>
   
+  <div class="page-wrapper">
     <!-- Preloader -->
-    <div class="preloader"><div class="icon"></div></div>
-  
-   
-    <!-- Site Container-->
-    <div class="site-container">
-
-        <div class="mode-switch">
-            <div class="switcher clearfix">
-                <div class="left-text">Weekend Mode</div>
-                <div class="switch-btn"><div class="btn-inner"><div class="circle"></div><div class="txt">OFF</div></div><a href="weekend-mode.html"></a></div>
-            </div>
-        </div>
-
-        <div class="auto-container">
-            <div class="mobile-header">
-                <div class="inner">
-                    <div class="logo-side">
-                        <div class="image-box">
-                            <div class="image"><img src="static/picture/image-1.jpg" alt=""></div>
-                        </div>
-                        <div class="info">
-                            <div class="name">Graham Walker</div>
-                            <div class="designation">App Developer</div>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <div class="social-btn"><i class="icon">+</i></div>
-                        <ul class="links clearfix">
-                            <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                            <li><a href="#"><span class="fab fa-twitter-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa-linkedin"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="nav-toggler"><img src="static/picture/menu-icon.png" alt=""></div>
-                </div>
-            </div>
-            <div class="site-content-container row clearfix">
-                <!--Left Bar-->
-                <div class="left-bar sticky-top col-xl-3 col-lg-4 col-md-12">
-                    <div class="left-inner">
-                        <div class="nav-toggler"><img src="static/picture/close-icon.png" alt=""></div>
-                        <div class="left-upper">
-                            <div class="image-box">
-                                <div class="image"><img src="static/picture/image-1.jpg" alt=""></div>
-                                <div class="social-links">
-                                    <div class="social-btn"><i class="icon">+</i></div>
-                                    <ul class="links clearfix">
-                                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-twitter-square"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-linkedin"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="name">Graham Walker</div>
-                                <div class="designation"><i class="dot"></i> App Developer</div>
-                            </div>
-                        </div>
-                        <div class="left-lower">
-                            <nav class="main-nav">
-                                <ul class="navigation scroll-nav">
-                                    <li class="home"><a href="index.html#home-section">Home</a></li>
-                                    <li class="resume"><a href="index.html#resume-section">Resume</a></li>
-                                    <li class="work"><a href="index.html#work-section">Work</a></li>
-                                    <li class="stories"><a href="index.html#stories-section">Stories</a></li>
-                                    <li class="contact"><a href="index.html#contact-section">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <!--Right Content-->
-                <div class="right-content col-xl-9 col-lg-8 col-md-12">
-                    <div class="right-inner">
-                        <div class="page-title"><h1><span>Stories</span></h1></div>
-
-                        <div class="content-container">
-                            <div class="stories-content">
-
-                                <section class="post-detail">
-                                    <div class="post-content">
-                                        <div class="big-image"><img src="static/picture/blog-image-9.jpg" alt=""></div>
-                                        <h2 class="post-title">Gauging the Cardinals, Packers and potential Super Bowl contenders in top-heavy NFC</h2>
-                                        <div class="info clearfix">
-                                            <div class="i-blk"><span class="icon far fa-comment"></span> 5 comments</div>
-                                            <div class="i-blk"><span class="icon far fa-user"></span> admin</div>
-                                        </div>
-                                        <div class="text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                        </div>
-                                        <div class="image-gallery">
-                                            <div class="row clearfix">
-                                                <div class="image-column col-lg-5 col-md-5 col-sm-12">
-                                                    <div class="image-block"><div class="image"><img src="static/picture/blog-image-10.jpg" alt=""></div></div>
-                                                </div>
-                                                <div class="image-column col-lg-7 col-md-7 col-sm-12">
-                                                    <div class="row clearfix">
-                                                        <div class="image-block col-lg-6 col-sm-6 col-xs-12"><div class="image"><img src="static/picture/blog-image-11.jpg" alt=""></div></div>
-                                                        <div class="image-block col-lg-6 col-sm-6 col-xs-12"><div class="image"><img src="static/picture/blog-image-12.jpg" alt=""></div></div>
-                                                        <div class="image-block col-lg-6 col-sm-6 col-xs-12"><div class="image"><img src="static/picture/blog-image-13.jpg" alt=""></div></div>
-                                                        <div class="image-block col-lg-6 col-sm-6 col-xs-12"><div class="image"><img src="static/picture/blog-image-14.jpg" alt=""></div></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="text">
-                                            <h3>Dropcap Example</h3>
-                                            <p class="has-dropcap"><span class="dropcap">D</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                                            <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.</blockquote>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="comments">
-                                        <h2>3 Comments</h2>
-                                        <div class="comment-block">
-                                            <div class="inner">
-                                                <div class="image"><img src="static/picture/thumb-1.jpg" alt=""></div>
-                                                <div class="info">
-                                                    <span class="name">Derek</span>
-                                                    <span class="time">- &ensp;&ensp; 1 hour ago</span>
-                                                </div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                                <div class="link-box"><a href="#" class="theme-btn btn-style-one"><span>Reply</span></a></div>
-                                            </div>
-                                        </div>
-                                        <div class="comment-block reply-comment">
-                                            <div class="inner">
-                                                <div class="image"><img src="static/picture/thumb-2.jpg" alt=""></div>
-                                                <div class="info">
-                                                    <span class="name">Mike</span>
-                                                    <span class="time">- &ensp;&ensp; 1 hour ago</span>
-                                                </div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ex ea commodo consequat.</div>
-                                                <div class="link-box"><a href="#" class="theme-btn btn-style-one"><span>Reply</span></a></div>
-                                            </div>
-                                        </div>
-                                        <div class="comment-block">
-                                            <div class="inner">
-                                                <div class="image"><img src="static/picture/thumb-3.jpg" alt=""></div>
-                                                <div class="info">
-                                                    <span class="name">Cody</span>
-                                                    <span class="time">- &ensp;&ensp; 1 hour ago</span>
-                                                </div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                                <div class="link-box"><a href="#" class="theme-btn btn-style-one"><span>Reply</span></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="add-comment">
-                                        <h2>Add Comment</h2>
-                                        <div class="contact-form comment-form">
-                                            <form method="post" action="contact.html">
-                                                <div class="row clearfix">
-                                                    <div class="field-group col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="form-group">
-                                                            <label for="name" class="field-label"><span class="icon fa fa-user"></span></label>
-                                                            <input type="text" name="fieldname" id="name" value="" placeholder="Name" required="">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="email" class="field-label"><span class="icon far fa-envelope"></span></label>
-                                                            <input type="email" name="fieldname" id="email" value="" placeholder="E-mail" required="">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="website" class="field-label"><span class="icon fa fa-link"></span></label>
-                                                            <input type="url" name="fieldname" id="website" value="" placeholder="Website" required="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="field-group col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="form-group">
-                                                            <textarea name="fieldname" id="message" placeholder="Your Comment" required=""></textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <button type="submit" class="theme-btn btn-style-one"><span>Post Comment</span></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </section>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Copyright-->
-                    <div class="site-footer">
-                        <div class="copyright">Copyright &copy; 2024.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
+    <div class="preloader" role="status" aria-label="Loading" v-if="isLoading">
+      <div class="icon"></div>
     </div>
-    <!--End Site Container -->
     
-    
-</div>
-<!--End pagewrapper-->
+    <main class="site-container">
+      <div class="mode-switch">
+        <div class="switcher clearfix">
+          <div class="left-text">Weekend Mode</div>
+          <div class="switch-btn" @click="toggleWeekendMode">
+            <div class="btn-inner">
+              <div class="circle"></div>
+              <span class="txt">{{ isWeekendMode ? 'ON' : 'OFF' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fas fa-arrow-up"></span></div>
+      <div class="auto-container">
+        <header class="mobile-header">
+          <div class="inner">
+            <div class="logo-side">
+              <div class="image-box">
+                <img :src="profile.image" :alt="profile.name" loading="lazy">
+              </div>
+              <div class="info">
+                <h1 class="name">{{ profile.name }}</h1>
+                <p class="designation">{{ profile.designation }}</p>
+              </div>
+            </div>
+            <nav class="social-links" aria-label="Social media links">
+              <button 
+                class="social-btn" 
+                @click="toggleSocialLinks" 
+                :aria-expanded="showSocialLinks"
+                aria-label="Toggle social links"
+              >
+                <i class="icon">+</i>
+              </button>
+              <ul class="links clearfix" v-show="showSocialLinks">
+                <li v-for="link in socialLinks" :key="link.name">
+                  <a :href="link.href" :aria-label="link.name">
+                    <span :class="link.icon"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <button class="nav-toggler" @click="toggleNav" aria-label="Toggle navigation">
+              <img src="static/picture/menu-icon.png" alt="Menu">
+            </button>
+          </div>
+        </header>
 
-<script src="static/js/jquery.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/jquery.fancybox.js"></script>
-<script src="static/js/jquery.scrollTo.js"></script>
-<script src="static/js/pagenav.js"></script>
-<script src="static/js/wow.js"></script>
-<script src="static/js/appear.js"></script>
-<script src="static/js/custom-script.js"></script>
-</body>
-</html>
+        <div class="site-content-container row clearfix">
+          <!-- Left Sidebar -->
+          <aside class="left-bar sticky-top col-xl-3 col-lg-4 col-md-12">
+            <div class="left-inner">
+              <button class="nav-toggler" @click="toggleNav" aria-label="Close navigation">
+                <img src="static/picture/close-icon.png" alt="Close">
+              </button>
+              
+              <div class="left-upper">
+                <div class="image-box">
+                  <img :src="profile.image" :alt="profile.name" loading="lazy">
+                  <nav class="social-links" aria-label="Social media links">
+                    <button 
+                      class="social-btn" 
+                      @click="toggleSocialLinks" 
+                      :aria-expanded="showSocialLinks"
+                      aria-label="Toggle social links"
+                    >
+                      <i class="icon">+</i>
+                    </button>
+                    <ul class="links clearfix" v-show="showSocialLinks">
+                      <li v-for="link in socialLinks" :key="link.name">
+                        <a :href="link.href" :aria-label="link.name">
+                          <span :class="link.icon"></span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="info">
+                  <h2 class="name">{{ profile.name }}</h2>
+                  <p class="designation"><i class="dot"></i> {{ profile.designation }}</p>
+                </div>
+              </div>
+              
+              <div class="left-lower">
+                <nav class="main-nav" aria-label="Main navigation">
+                  <ul class="navigation scroll-nav">
+                    <li v-for="item in navigationItems" :key="item.name" :class="item.class">
+                      <a :href="item.href">{{ item.name }}</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <section class="right-content col-xl-9 col-lg-8 col-md-12">
+            <div class="right-inner">
+              <header class="page-title">
+                <h1><span>Stories</span></h1>
+              </header>
+
+              <div class="content-container">
+                <article class="stories-content">
+                  <section class="post-detail">
+                    <header class="post-content">
+                      <div class="big-image">
+                        <img :src="post.image" :alt="post.title" loading="lazy">
+                      </div>
+                      <h2 class="post-title">{{ post.title }}</h2>
+                      <div class="info clearfix">
+                        <div class="i-blk">
+                          <span class="icon far fa-comment" aria-hidden="true"></span>
+                          <span>{{ comments.length }} comments</span>
+                        </div>
+                        <div class="i-blk">
+                          <span class="icon far fa-user" aria-hidden="true"></span>
+                          <span>{{ post.author }}</span>
+                        </div>
+                      </div>
+                    </header>
+
+                    <div class="text">
+                      <p v-for="(paragraph, index) in post.content" :key="index">
+                        {{ paragraph }}
+                      </p>
+                    </div>
+
+                    <div class="image-gallery" role="region" aria-label="Image gallery">
+                      <div class="row clearfix">
+                        <div class="image-column col-lg-5 col-md-5 col-sm-12">
+                          <figure class="image-block">
+                            <img :src="post.gallery[0]" alt="Gallery image 1" loading="lazy">
+                          </figure>
+                        </div>
+                        <div class="image-column col-lg-7 col-md-7 col-sm-12">
+                          <div class="row clearfix">
+                            <figure 
+                              v-for="(image, index) in post.gallery.slice(1)" 
+                              :key="index"
+                              class="image-block col-lg-6 col-sm-6 col-xs-12"
+                            >
+                              <img :src="image" :alt="`Gallery image ${index + 2}`" loading="lazy">
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="text">
+                      <h3>Dropcap Example</h3>
+                      <p class="has-dropcap">
+                        <span class="dropcap">D</span>
+                        {{ post.dropcapText }}
+                      </p>
+                      <p v-for="(paragraph, index) in post.additionalContent" :key="index">
+                        {{ paragraph }}
+                      </p>
+                      <blockquote>
+                        <p>{{ post.quote }}</p>
+                      </blockquote>
+                    </div>
+                  </section>
+
+                  <section class="comments">
+                    <h2>{{ comments.length }} Comments</h2>
+                    <div class="comment-list">
+                      <article 
+                        v-for="comment in comments" 
+                        :key="comment.id" 
+                        class="comment-block"
+                        :class="{ 'reply-comment': comment.isReply }"
+                      >
+                        <div class="inner">
+                          <img :src="comment.avatar" :alt="`${comment.name}'s avatar`" loading="lazy">
+                          <div class="info">
+                            <span class="name">{{ comment.name }}</span>
+                            <time class="time" :datetime="comment.datetime">{{ comment.time }}</time>
+                          </div>
+                          <p class="text">{{ comment.text }}</p>
+                          <button 
+                            class="theme-btn btn-style-one" 
+                            :aria-label="`Reply to ${comment.name}`"
+                            @click="handleReply(comment)"
+                          >
+                            Reply
+                          </button>
+                        </div>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="add-comment">
+                    <h2>Add Comment</h2>
+                    <form @submit.prevent="handleSubmit" class="contact-form comment-form">
+                      <div class="row clearfix">
+                        <div class="field-group col-lg-6 col-md-6 col-sm-12">
+                          <div class="form-group">
+                            <label for="name" class="field-label">
+                              <span class="icon fa fa-user" aria-hidden="true"></span>
+                              <span class="sr-only">Name</span>
+                            </label>
+                            <input 
+                              type="text" 
+                              v-model="commentForm.name"
+                              name="name" 
+                              id="name" 
+                              placeholder="Name" 
+                              required 
+                              aria-required="true"
+                            >
+                          </div>
+                          <div class="form-group">
+                            <label for="email" class="field-label">
+                              <span class="icon far fa-envelope" aria-hidden="true"></span>
+                              <span class="sr-only">Email</span>
+                            </label>
+                            <input 
+                              type="email" 
+                              v-model="commentForm.email"
+                              name="email" 
+                              id="email" 
+                              placeholder="E-mail" 
+                              required 
+                              aria-required="true"
+                            >
+                          </div>
+                          <div class="form-group">
+                            <label for="website" class="field-label">
+                              <span class="icon fa fa-link" aria-hidden="true"></span>
+                              <span class="sr-only">Website</span>
+                            </label>
+                            <input 
+                              type="url" 
+                              v-model="commentForm.website"
+                              name="website" 
+                              id="website" 
+                              placeholder="Website"
+                            >
+                          </div>
+                        </div>
+                        <div class="field-group col-lg-6 col-md-6 col-sm-12">
+                          <div class="form-group">
+                            <label for="message" class="sr-only">Your Comment</label>
+                            <textarea 
+                              v-model="commentForm.message"
+                              name="message" 
+                              id="message" 
+                              placeholder="Your Comment" 
+                              required 
+                              aria-required="true"
+                            ></textarea>
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="theme-btn btn-style-one">Post Comment</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </section>
+                </article>
+              </div>
+            </div>
+
+            <footer class="site-footer">
+              <p class="copyright">
+                Copyright &copy; 2024.Company name All rights reserved.
+                <a target="_blank" href="https://sc.chinaz.com/moban/" rel="noopener">网页模板</a>
+              </p>
+            </footer>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scroll to top button -->
+  <button 
+    class="scroll-to-top scroll-to-target" 
+    @click="scrollToTop"
+    aria-label="Scroll to top"
+  >
+    <span class="fas fa-arrow-up" aria-hidden="true"></span>
+  </button>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+// 状态管理
+const isLoading = ref(true)
+const isNavOpen = ref(false)
+const showSocialLinks = ref(false)
+const isWeekendMode = ref(false)
+
+// 个人资料
+const profile = ref({
+  name: 'Graham Walker',
+  designation: 'App Developer',
+  image: 'static/picture/image-1.jpg'
+})
+
+// 社交链接
+const socialLinks = ref([
+  { name: 'Facebook', icon: 'fab fa-facebook-square', href: '#' },
+  { name: 'Instagram', icon: 'fab fa-instagram', href: '#' },
+  { name: 'Twitter', icon: 'fab fa-twitter-square', href: '#' },
+  { name: 'LinkedIn', icon: 'fab fa-linkedin', href: '#' }
+])
+
+// 导航项
+const navigationItems = ref([
+  { name: 'Home', href: 'index.html#home-section', class: 'home' },
+  { name: 'Resume', href: 'index.html#resume-section', class: 'resume' },
+  { name: 'Work', href: 'index.html#work-section', class: 'work' },
+  { name: 'Stories', href: 'index.html#stories-section', class: 'stories' },
+  { name: 'Contact', href: 'index.html#contact-section', class: 'contact' }
+])
+
+// 文章内容
+const post = ref({
+  title: 'Gauging the Cardinals, Packers and potential Super Bowl contenders in top-heavy NFC',
+  image: 'static/picture/blog-image-9.jpg',
+  author: 'admin',
+  content: [
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  ],
+  gallery: [
+    'static/picture/blog-image-10.jpg',
+    'static/picture/blog-image-11.jpg',
+    'static/picture/blog-image-12.jpg',
+    'static/picture/blog-image-13.jpg',
+    'static/picture/blog-image-14.jpg'
+  ],
+  dropcapText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  additionalContent: [
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  ],
+  quote: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+})
+
+// 评论
+const comments = ref([
+  {
+    id: 1,
+    name: 'Derek',
+    avatar: 'static/picture/thumb-1.jpg',
+    time: '1 hour ago',
+    datetime: '2024-01-01',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    isReply: false
+  },
+  {
+    id: 2,
+    name: 'Mike',
+    avatar: 'static/picture/thumb-2.jpg',
+    time: '1 hour ago',
+    datetime: '2024-01-01',
+    text: 'Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    isReply: true
+  },
+  {
+    id: 3,
+    name: 'Cody',
+    avatar: 'static/picture/thumb-3.jpg',
+    time: '1 hour ago',
+    datetime: '2024-01-01',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    isReply: false
+  }
+])
+
+// 评论表单
+const commentForm = ref({
+  name: '',
+  email: '',
+  website: '',
+  message: ''
+})
+
+// 方法
+const toggleNav = () => {
+  isNavOpen.value = !isNavOpen.value
+}
+
+const toggleSocialLinks = () => {
+  showSocialLinks.value = !showSocialLinks.value
+}
+
+const toggleWeekendMode = () => {
+  isWeekendMode.value = !isWeekendMode.value
+}
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+const handleReply = (comment) => {
+  commentForm.value.message = `@${comment.name} `
+}
+
+const handleSubmit = () => {
+  const newComment = {
+    id: comments.value.length + 1,
+    ...commentForm.value,
+    time: 'Just now',
+    datetime: new Date().toISOString(),
+    isReply: false,
+    avatar: 'static/picture/default-avatar.jpg' // 添加默认头像
+  }
+  
+  comments.value.push(newComment)
+  
+  // 重置表单
+  commentForm.value = {
+    name: '',
+    email: '',
+    website: '',
+    message: ''
+  }
+}
+
+// 生命周期
+onMounted(() => {
+  setTimeout(() => {
+    isLoading.value = false
+  }, 1000)
+})
+</script>
+
+<style>
+/* 保持原有样式 */
+@import 'static/css/bootstrap.css';
+@import 'static/css/style.css';
+@import 'static/css/responsive.css';
+</style>

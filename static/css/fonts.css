@@ -1,0 +1,28 @@
+/* 使用系统字体作为备选方案 */
+@font-face {
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Microsoft YaHei UI Light'), local('Segoe UI'), local('Arial');
+}
+
+@font-face {
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Microsoft YaHei UI'), local('Segoe UI'), local('Arial');
+}
+
+@font-face {
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Microsoft YaHei UI Semibold'), local('Segoe UI Semibold'), local('Arial');
+}
+
+@font-face {
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Microsoft YaHei UI Bold'), local('Segoe UI Bold'), local('Arial Bold');
+}

@@ -1,17 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>Graham Walker - Home</title>
+<title>Graham Walker - 个人简历</title>
 <!-- Stylesheets -->
 <link href="static/css/bootstrap.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
 <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 <link rel="icon" href="images/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <link href="static/css/responsive.css" rel="stylesheet">
+<style>
+    /* 现代化样式优化 */
+    .app-header {
+        background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+        color: white;
+        padding: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        height: 64px;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+    }
+    
+    .nav-menu li {
+        position: relative;
+    }
+    
+    .nav-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+    
+    .nav-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-menu a.active {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .main-content {
+        margin-top: 80px;
+        padding: 40px 0;
+    }
+    
+    .section {
+        background: white;
+        border-radius: 12px;
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .section:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .section-title {
+        font-size: 28px;
+        color: #1f2937;
+        margin-bottom: 30px;
+        font-weight: bold;
+        border-left: 4px solid #1677ff;
+        padding-left: 16px;
+    }
+    
+    .card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #1677ff;
+        transition: all 0.3s;
+    }
+    
+    .card:hover {
+        background: #e3f2fd;
+        transform: translateX(4px);
+    }
+    
+    .skill-bar {
+        background: #e5e7eb;
+        border-radius: 10px;
+        height: 8px;
+        margin: 10px 0;
+        overflow: hidden;
+    }
+    
+    .skill-progress {
+        background: linear-gradient(90deg, #1677ff, #4096ff);
+        height: 100%;
+        border-radius: 10px;
+        transition: width 1s ease-in-out;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+        border: none;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+    
+    .feature-icon i {
+        font-size: 24px;
+        color: white;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            padding: 10px;
+            height: auto;
+        }
+        
+        .nav-menu {
+            margin: 10px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .main-content {
+            margin-top: 120px;
+            padding: 20px 0;
+        }
+        
+        .section {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+        }
+    }
+</style>
 </head>
 
 <body class="home-body">

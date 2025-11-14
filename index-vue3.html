@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Graham Walker - Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" href="static/css/bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="static/css/bootstrap.css"></noscript>
+<link rel="preload" href="static/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="static/css/style.css"></noscript>
+<link rel="preload" href="static/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="static/css/responsive.css"></noscript>
+<style>.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}</style>
+<link rel="shortcut icon" href="static/picture/favicon.png" type="image/x-icon">
+<link rel="icon" href="static/picture/favicon.png" type="image/x-icon">
+<meta name="description" content="Graham Walker - App Developer Portfolio">
+<meta name="keywords" content="app developer, portfolio, web design, ux/ui">
+<meta name="author" content="Graham Walker">
+<meta property="og:title" content="Graham Walker - App Developer">
+<meta property="og:description" content="Portfolio of Graham Walker, an experienced app developer">
+<meta property="og:image" content="static/picture/image-1.jpg">
+<meta property="og:url" content="">
+<meta property="og:type" content="website">
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body class="home-body">
+<div id="app">
+<div class="body-bg" :style="'background-image:url(' + backgroundImage + ')'"></div>
+<div class="page-wrapper">
+<div class="preloader" v-if="isLoading"><div class="icon"></div></div>
+<div class="site-container">
+<div class="mode-switch">
+<div class="switcher clearfix">
+<div class="left-text">Weekend Mode</div>
+<div class="switch-btn"><div class="btn-inner"><div class="circle"></div><div class="txt">{{ weekendMode ? 'ON' : 'OFF' }}</div></div><a href="weekend-mode.html"></a></div>
+</div>
+</div>
+<div class="auto-container">
+<div class="mobile-header">
+<div class="inner">
+<div class="logo-side">
+<div class="image-box">
+<div class="image"><img :src="profileImage" :alt="profileImageAlt" loading="lazy" width="300" height="300"></div>
+</div>
+<div class="info">
+<div class="name">{{ personalInfo.name }}</div>
+<div class="designation">{{ personalInfo.designation }}</div>
+</div>
+</div>
+<div class="social-links">
+<div class="social-btn" @click="toggleSocialLinks"><i class="icon">+</i></div>
+<ul class="links clearfix" v-if="showSocialLinks">
+<li v-for="link in socialLinks" :key="link.name"><a :href="link.url"><span :class="link.iconClass"></span></a></li>
+</ul>
+</div>
+<div class="nav-toggler"><img src="static/picture/menu-icon.png" alt="Menu" @click="toggleMobileMenu"></div>
+</div>
+</div>
+<div class="site-content-container row clearfix">
+<div class="left-bar sticky-top col-xl-3 col-lg-4 col-md-12" :class="{ 'show': showMobileMenu }">
+<div class="left-inner">
+<div class="nav-toggler"><img src="static/picture/close-icon.png" alt="Close" @click="toggleMobileMenu"></div>
+<div class="left-upper">
+<div class="image-box">
+<div class="image"><img :src="profileImage" :alt="profileImageAlt" loading="lazy" width="300" height="300"></div>
+<div class="social-links">
+<div class="social-btn" @click="toggleSocialLinks"><i class="icon">+</i></div>
+<ul class="links clearfix" v-if="showSocialLinks">
+<li v-for="link in socialLinks" :key="link.name"><a :href="link.url"><span :class="link.iconClass"></span></a></li>
+</ul>
+</div>
+</div>
+<div class="info">
+<div class="name">{{ personalInfo.name }}</div>
+<div class="designation"><i class="dot"></i> {{ personalInfo.designation }}</div>
+</div>
+</div>
+<div class="left-lower">
+<nav class="main-nav">
+<ul class="navigation scroll-nav">
+<li v-for="section in navigationSections" :key="section.id" :class="section.class"><a :href="section.href">{{ section.name }}</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="right-content col-xl-9 col-lg-8 col-md-12">
+<div class="right-inner">
+<div class="content-container">
+<home-section id="home-section"></home-section>
+<resume-section id="resume-section"></resume-section>
+<work-section id="work-section"></work-section>
+<stories-section id="stories-section"></stories-section>
+<contact-section id="contact-section"></contact-section>
+</div>
+</div>
+<div class="site-footer">
+  <!-- https://sc.chinaz.com/moban/ -->
+<div class="copyright">Copyright &copy; {{ currentYear }}.{{ companyName }} All rights reserved.<a href="#">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="scroll-to-top scroll-to-target" data-target="html" @click="scrollToTop"><span class="fas fa-arrow-up"></span></div>
+</div>
+
+<script>
+const { createApp, ref, computed, onMounted } = Vue;
+
+// Home Section Component
+const HomeSection = {
+  template: `
+    <div class="home-content">
+      <div class="download-cv"><a href="#" class="theme-btn download-btn"><i class="icon"><img src="static/picture/cv-1.png" alt=""></i><span class="txt">Download CV</span></a></div>
+      <div class="welcome">
+        <h4>Hello and Welcome</h4>
+        <div class="text">{{ welcomeText }}</div>
+      </div>
+      <div class="about-me">
+        <div class="row clearfix">
+          <div class="skills-column col-xl-5 col-lg-12 col-md-12">
+            <h4>Skills</h4>
+            <div class="skills">
+              <div v-for="skill in skills" :key="skill.name" class="skill-block">
+                <div class="skill-block-inner">
+                  <div class="skill-title">{{ skill.name }}</div>
+                  <div class="bar">
+                    <div class="bar-inner count-bar" :data-percent="skill.percent + '%'">
+                      <div class="count-box"><span class="count-text" :data-stop="skill.percent" data-speed="2000">0</span>%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="expertise-column col-xl-7 col-lg-12 col-md-12">
+            <h4>Expertise</h4>
+            <div class="expertise">
+              <div class="row clearfix">
+                <div v-for="(expertiseList, index) in expertise" :key="index" class="col-lg-6 col-md-6 col-sm-12">
+                  <ul>
+                    <li v-for="item in expertiseList" :key="item">{{ item }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="features">
+          <div class="row clearfix">
+            <div v-for="feature in features" :key="feature.title" class="feature-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="inner-box">
+                <div class="icon-box"><span class="icon"><img :src="feature.icon" :alt="feature.title"></span></div>
+                <h5>{{ feature.title }}</h5>
+                <div class="text">{{ feature.description }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="languages">
+          <h4>Languages</h4>
+          <div class="row clearfix">
+            <div v-for="language in languages" :key="language.name" class="language-block col-lg-6 col-md-6 col-sm-12">
+              <div class="inner-box">
+                <div class="graph-outer">
+                  <input type="text" class="dial" :data-fgcolor="language.color" data-bgcolor="#f5f5f5" data-width="200" data-height="200" data-linecap="normal" :value="language.proficiency">
+                  <div class="inner-text count-box"><span class="count-text" :data-stop="language.proficiency" data-speed="2000"></span>%</div>
+                </div>
+                <div class="text">{{ language.name }} <br>Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials">
+        <div class="carousel-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="300ms">
+          <div class="testi-carousel owl-theme owl-carousel">
+            <div v-for="testimonial in testimonials" :key="testimonial.id" class="slide-item">
+              <div class="content-box">
+                <div class="image-box">
+                  <div class="image"><img :src="testimonial.image" :alt="testimonial.name"></div>
+                </div>
+                <div class="text">" {{ testimonial.text }} "</div>
+                <div class="info">{{ testimonial.name }} - {{ testimonial.position }}</div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  `,
+  setup() {
+    const welcomeText = ref("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.");
+
+    const skills = ref([
+      { name: "wordpress", percent: 82 },
+      { name: "Photoshop", percent: 78 },
+      { name: "HTML", percent: 97 }
+    ]);
+
+    const expertise = ref([
+      [
+        "install and configure",
+        "web usability",
+        "digital painting",
+        "grid and layout",
+        "mobile app design",
+        "graphical design",
+        "seo optimization",
+        "social media"
+      ],
+      [
+        "ux and ui design",
+        "logo design",
+        "3D animation",
+        "audio video editing",
+        "photography",
+        "web development",
+        "digital marketing",
+        "app development"
+      ]
+    ]);
+
+    const features = ref([
+      {
+        title: "Design Concept",
+        icon: "static/picture/lcd-2.png",
+        description: "Awesome designs for your company"
+      },
+      {
+        title: "App Development",
+        icon: "static/picture/mobile-2.png",
+        description: "Well-coded apps suitable for your needs"
+      },
+      {
+        title: "Marketing",
+        icon: "static/picture/support-2.png",
+        description: "Affordable, targeted media for everyone"
+      }
+    ]);
+
+    const languages = ref([
+      {
+        name: "English",
+        color: "#fd7030",
+        proficiency: 99
+      },
+      {
+        name: "French",
+        color: "#fd7030",
+        proficiency: 80
+      }
+    ]);
+
+    const testimonials = ref([
+      {
+        id: 1,
+        name: "Dave Smith",
+        position: "CEO @ vcard inc",
+        image: "static/picture/image-2.jpg",
+        text: "Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work."
+      },
+      {
+        id: 2,
+        name: "Dave Smith",
+        position: "CEO @ vcard inc",
+        image: "static/picture/image-2.jpg",
+        text: "Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work."
+      },
+      {
+        id: 3,
+        name: "Dave Smith",
+        position: "CEO @ vcard inc",
+        image: "static/picture/image-2.jpg",
+        text: "Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work."
+      }
+    ]);
+
+    return {
+      welcomeText,
+      skills,
+      expertise,
+      features,
+      languages,
+      testimonials
+    };
+  }
+};
+
+// Resume Section Component
+const ResumeSection = {
+  template: `
+    <div class="resume-content">
+      <div class="page-title sec-title"><h1><span>Resume</span></h1></div>
+      <div class="awards">
+        <div class="main-title">
+          <span class="icon"><img src="static/picture/award-1.png" alt=""></span>
+          <span class="txt">Awards</span>
+        </div>
+        <div class="row clearfix">
+          <div v-for="award in awards" :key="award.id" class="award-block col-lg-6 col-md-6 col-sm-12">
+            <div class="inner-box">
+              <div class="date"><span>{{ award.year }}</span></div>
+              <h5>{{ award.title }}</h5>
+              <div class="text">{{ award.description }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="expertise">
+        <div class="main-title">
+          <span class="icon"><img src="static/picture/expertise-1.png" alt=""></span>
+          <span class="txt">Expertise</span>
+        </div>
+        <div class="row clearfix">
+          <div v-for="(expertiseList, index) in expertise" :key="index" class="expertise-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="inner-box">
+              <ul>
+                <li v-for="item in expertiseList" :key="item">{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="education">
+        <div class="main-title">
+          <span class="icon"><img src="static/picture/education-1.png" alt=""></span>
+          <span class="txt">Education</span>
+        </div>
+        <div class="row clearfix">
+          <div v-for="education in education" :key="education.id" class="edu-block col-lg-6 col-md-6 col-sm-12">
+            <div class="inner-box">
+              <div class="date"><span>{{ education.period }}</span></div>
+              <h5>{{ education.title }}</h5>
+              <div class="text">{{ education.description }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="interests">
+        <div class="main-title">
+          <span class="icon"><img src="static/picture/interest-1.png" alt=""></span>
+          <span class="txt">Interests</span>
+        </div>
+        <div class="row clearfix">
+          <div v-for="interest in interests" :key="interest.id" class="interest-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="inner-box">
+              <div class="icon-box">
+                <span class="icon def-icon"><img :src="interest.defaultIcon" :alt="interest.name"></span>
+                <span class="icon hvr-icon"><img :src="interest.hoverIcon" :alt="interest.name"></span>
+              </div>
+              <h5>{{ interest.name }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="education experience">
+        <div class="main-title">
+          <span class="icon"><img src="static/picture/experience-1.png" alt=""></span>
+          <span class="txt">Experience</span>
+        </div>
+        <div class="row clearfix">
+          <div v-for="experience in workExperience" :key="experience.id" class="edu-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="inner-box">
+              <div class="date"><span>{{ experience.period }}</span></div>
+              <h5>{{ experience.company }}</h5>
+              <div class="text">{{ experience.description }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  setup() {
+    const awards = ref([
+      {
+        id: 1,
+        year: "2021",
+        title: "Best Designer",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore"
+      },
+      {
+        id: 2,
+        year: "2020",
+        title: "Art of the Week",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore"
+      },
+      {
+        id: 3,
+        year: "2019",
+        title: "Creative Poster Award",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore"
+      },
+      {
+        id: 4,
+        year: "2018",
+        title: "Website of the Month",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore"
+      }
+    ]);
+
+    const expertise = ref([
+      [
+        "install and configure",
+        "web usability",
+        "digital painting",
+        "grid and layout",
+        "mobile app design"
+      ],
+      [
+        "ux and ui design",
+        "logo design",
+        "3D animation",
+        "graphical design",
+        "seo optimization"
+      ],
+      [
+        "social media",
+        "audio video editing",
+        "photography",
+        "web development",
+        "digital marketing"
+      ]
+    ]);
+
+    const education = ref([
+      {
+        id: 1,
+        period: "2017  -  2021",
+        title: "Master in Graphics",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt."
+      },
+      {
+        id: 2,
+        period: "2015  -  2017",
+        title: "Web Design",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt."
+      },
+      {
+        id: 3,
+        period: "2011  -  2013",
+        title: "University of Art",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt."
+      },
+      {
+        id: 4,
+        period: "2011  -  2012",
+        title: "Photoshooting Course",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt."
+      }
+    ]);
+
+    const interests = ref([
+      {
+        id: 1,
+        name: "Reading",
+        defaultIcon: "static/picture/book-1.png",
+        hoverIcon: "static/picture/book-11.png"
+      },
+      {
+        id: 2,
+        name: "Travel",
+        defaultIcon: "static/picture/world-1.png",
+        hoverIcon: "static/picture/world-11.png"
+      },
+      {
+        id: 3,
+        name: "Photography",
+        defaultIcon: "static/picture/camera-1.png",
+        hoverIcon: "static/picture/camera-11.png"
+      },
+      {
+        id: 4,
+        name: "Cycling",
+        defaultIcon: "static/picture/cycle-1.png",
+        hoverIcon: "static/picture/cycle-11.png"
+      },
+      {
+        id: 5,
+        name: "Hiking",
+        defaultIcon: "static/picture/hiking-1.png",
+        hoverIcon: "static/picture/hiking-11.png"
+      },
+      {
+        id: 6,
+        name: "Gaming",
+        defaultIcon: "static/picture/gaming-1.png",
+        hoverIcon: "static/picture/gaming-11.png"
+      }
+    ]);
+
+    const workExperience = ref([
+      {
+        id: 1,
+        period: "2017  -  Current",
+        company: "Themeforest",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing."
+      },
+      {
+        id: 2,
+        period: "2015  -  2017",
+        company: "GraphicRiver",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing."
+      },
+      {
+        id: 3,
+        period: "2012  -  2015",
+        company: "CodeCanyon",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing."
+      }
+    ]);
+
+    return {
+      awards,
+      expertise,
+      education,
+      interests,
+      workExperience
+    };
+  }
+};
+
+// Work Section Component
+const WorkSection = {
+  template: `
+    <div class="work-content">
+      <div class="page-title sec-title"><h1><span>Work</span></h1></div>
+      <section class="portfolio-section">
+        <div class="mixitup-gallery">
+          <div class="filters clearfix">
+            <ul class="filter-tabs filter-btns clearfix">
+              <li v-for="filter in filters" :key="filter.id" 
+                  :class="{ 'active filter': filter.id === activeFilter }" 
+                  @click="setActiveFilter(filter.id)"
+                  data-role="button" 
+                  :data-filter="filter.filter">{{ filter.name }}</li>
+            </ul>
+          </div>
+          <div class="filter-list row clearfix">
+            <div v-for="project in filteredProjects" :key="project.id" 
+                 :class="'portfolio-block mix ' + project.categories.join(' ') + ' col-xl-4 col-lg-6 col-md-6 col-sm-12'">
+              <div class="inner-box">
+                <div class="image"><img :src="project.image" :alt="project.alt" loading="lazy" width="400" height="300"></div>
+                <div class="hover-box">
+                  <div class="hvr-upper clearfix">
+                    <a :href="project.image" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
+                    <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
+                  </div>
+                  <div class="hvr-lower">
+                    <div class="title"><a href="work-single.html">{{ project.title }}</a></div>
+                    <div class="cat"><a href="#">{{ project.category }}</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+  setup() {
+    const activeFilter = ref('all');
+
+    const filters = ref([
+      { id: 'all', name: 'Show All', filter: 'all' },
+      { id: 'brandings', name: 'Brandings', filter: '.brandings' },
+      { id: 'print', name: 'Print', filter: '.print' },
+      { id: 'motion', name: 'Motion', filter: '.motion' },
+      { id: 'websites', name: 'Websites', filter: '.websites' }
+    ]);
+
+    const projects = ref([
+      {
+        id: 1,
+        title: "Branding Design",
+        category: "Print",
+        categories: ["all", "websites"],
+        image: "static/picture/work-1.jpg",
+        alt: "Branding Design Project"
+      },
+      {
+        id: 2,
+        title: "Branding Design",
+        category: "Print",
+        categories: ["all", "brandings"],
+        image: "static/picture/work-2.jpg",
+        alt: "Branding Design Project"
+      },
+      {
+        id: 3,
+        title: "Print Design",
+        category: "Print",
+        categories: ["all", "print"],
+        image: "static/picture/work-3.jpg",
+        alt: "Print Design Project"
+      },
+      {
+        id: 4,
+        title: "Motion Design",
+        category: "Motion",
+        categories: ["all", "motion"],
+        image: "static/picture/work-4.jpg",
+        alt: "Motion Design Project"
+      },
+      {
+        id: 5,
+        title: "Web Design",
+        category: "Websites",
+        categories: ["all", "brandings", "motion", "websites"],
+        image: "static/picture/work-5.jpg",
+        alt: "Web Design Project"
+      },
+      {
+        id: 6,
+        title: "Digital Marketing",
+        category: "Websites",
+        categories: ["all", "print", "motion", "websites"],
+        image: "static/picture/work-6.jpg",
+        alt: "Digital Marketing Project"
+      },
+      {
+        id: 7,
+        title: "UI Design",
+        category: "Websites",
+        categories: ["all", "brandings", "print", "websites"],
+        image: "static/picture/work-7.jpg",
+        alt: "UI Design Project"
+      },
+      {
+        id: 8,
+        title: "App Design",
+        category: "Motion",
+        categories: ["all", "brandings", "print", "motion"],
+        image: "static/picture/work-8.jpg",
+        alt: "App Design Project"
+      },
+      {
+        id: 9,
+        title: "Photography",
+        category: "Print",
+        categories: ["all", "print", "motion", "websites"],
+        image: "static/picture/work-9.jpg",
+        alt: "Photography Project"
+      }
+    ]);
+
+    const filteredProjects = computed(() => {
+      if (activeFilter.value === 'all') {
+        return projects.value;
+      }
+      return projects.value.filter(project => 
+        project.categories.includes(activeFilter.value)
+      );
+    });
+
+    function setActiveFilter(filterId) {
+      activeFilter.value = filterId;
+    }
+
+    return {
+      activeFilter,
+      filters,
+      projects,
+      filteredProjects,
+      setActiveFilter
+    };
+  }
+};
+
+// Stories Section Component
+const StoriesSection = {
+  template: `
+    <div class="stories-content">
+      <div class="page-title sec-title"><h1><span>Stories</span></h1></div>
+      <section class="stories-section">
+        <div class="row clearfix">
+          <div class="story-column col-xl-6 col-lg-12 col-md-12">
+            <div class="news-block">
+              <div class="inner-box">
+                <div class="image"><img :src="featuredStory.image" :alt="featuredStory.alt" loading="lazy" width="600" height="400"></div>
+                <div class="over-box">
+                  <div class="hvr-lower">
+                    <div class="title"><a href="story-single.html">{{ featuredStory.title }}</a></div>
+                    <div class="info clearfix">
+                      <div class="i-blk"><span class="icon far fa-comment"></span> {{ featuredStory.comments }} comments</div>
+                      <div class="i-blk"><span class="icon far fa-user"></span> {{ featuredStory.author }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div v-for="story in leftColumnStories" :key="story.id" class="news-block-two">
+              <div class="inner-box">
+                <div class="image"><a href="story-single.html"><img :src="story.image" :alt="story.alt" loading="lazy" width="300" height="200"></a></div>
+                <div class="text-box">
+                  <div class="title"><a href="story-single.html">{{ story.title }}</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="story-column col-xl-6 col-lg-12 col-md-12">
+            <div v-for="story in rightColumnStories" :key="story.id" class="news-block-two">
+              <div class="inner-box">
+                <div class="image"><a href="story-single.html"><img :src="story.image" :alt="story.alt" loading="lazy" width="300" height="200"></a></div>
+                <div class="text-box">
+                  <div class="title"><a href="story-single.html">{{ story.title }}</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="news-block">
+              <div class="inner-box">
+                <div class="image"><img :src="secondFeaturedStory.image" :alt="secondFeaturedStory.alt" loading="lazy" width="600" height="400"></div>
+                <div class="over-box">
+                  <div class="hvr-lower">
+                    <div class="title"><a href="story-single.html">{{ secondFeaturedStory.title }}</a></div>
+                    <div class="info clearfix">
+                      <div class="i-blk"><span class="icon far fa-comment"></span> {{ secondFeaturedStory.comments }} comments</div>
+                      <div class="i-blk"><span class="icon far fa-user"></span> {{ secondFeaturedStory.author }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+  setup() {
+    const stories = ref([
+      {
+        id: 1,
+        title: "Scotland's jungle islands are dealing with a major Covid hangover",
+        image: "static/picture/blog-image-1.jpg",
+        alt: "Scotland's jungle islands article",
+        comments: 5,
+        author: "admin",
+        featured: true,
+        column: "left"
+      },
+      {
+        id: 2,
+        title: "Why does Hong Kong wrap its towers in 'cocoons'?",
+        image: "static/picture/blog-image-3.jpg",
+        alt: "Hong Kong towers article",
+        column: "right"
+      },
+      {
+        id: 3,
+        title: "Using hand sanitizer may be giving you a false sense of security",
+        image: "static/picture/blog-image-4.jpg",
+        alt: "Hand sanitizer article",
+        column: "right"
+      },
+      {
+        id: 4,
+        title: "Why this space age airplane could change flying forever",
+        image: "static/picture/blog-image-5.jpg",
+        alt: "Space age airplane article",
+        column: "right"
+      },
+      {
+        id: 5,
+        title: "It's the most hostile place: Life at the North Pole",
+        image: "static/picture/blog-image-6.jpg",
+        alt: "North Pole article",
+        column: "left"
+      },
+      {
+        id: 6,
+        title: "How much respect does Lakers' title deserve?",
+        image: "static/picture/blog-image-7.jpg",
+        alt: "Lakers title article",
+        column: "left"
+      },
+      {
+        id: 7,
+        title: "Cruise ships torn apart after coronavirus sell off",
+        image: "static/picture/blog-image-8.jpg",
+        alt: "Cruise ships article",
+        column: "left"
+      },
+      {
+        id: 8,
+        title: "Kaepernick's Nike jersey sells out quickly",
+        image: "static/picture/blog-image-2.jpg",
+        alt: "Kaepernick's Nike jersey article",
+        comments: 5,
+        author: "admin",
+        featured: true,
+        column: "right"
+      }
+    ]);
+
+    const featuredStory = computed(() => stories.value.find(story => story.featured && story.column === 'left'));
+    const secondFeaturedStory = computed(() => stories.value.find(story => story.featured && story.column === 'right'));
+
+    const leftColumnStories = computed(() => 
+      stories.value.filter(story => !story.featured && story.column === 'left')
+    );
+
+    const rightColumnStories = computed(() => 
+      stories.value.filter(story => !story.featured && story.column === 'right')
+    );
+
+    return {
+      featuredStory,
+      secondFeaturedStory,
+      leftColumnStories,
+      rightColumnStories
+    };
+  }
+};
+
+// Contact Section Component
+const ContactSection = {
+  template: `
+    <div class="contact-content">
+      <div class="page-title sec-title"><h1><span>Contact</span></h1></div>
+      <div class="upper-text">
+        <h4>Get in touch</h4>
+        <div class="text">{{ contactText }}</div>
+      </div>
+      <div class="info-box">
+        <div class="row clearfix">
+          <div v-for="info in contactInfo" :key="info.id" class="info-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="inner-box">
+              <div class="icon"><span :class="info.iconClass"></span></div>
+              <div class="text"><a :href="info.href">{{ info.text }}</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-box">
+        <h4>Message me</h4>
+        <div class="contact-form">
+          <form @submit.prevent="submitForm">
+            <div class="row clearfix">
+              <div class="field-group col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="name" class="field-label"><span class="icon fa fa-user" aria-hidden="true"></span> Your Name</label>
+                  <input type="text" name="name" id="name" v-model="form.name" placeholder="Enter your name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                  <label for="email" class="field-label"><span class="icon far fa-envelope" aria-hidden="true"></span> Email Address</label>
+                  <input type="email" name="email" id="email" v-model="form.email" placeholder="Enter your email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                  <label for="website" class="field-label"><span class="icon fa fa-link" aria-hidden="true"></span> Website</label>
+                  <input type="url" name="website" id="website" v-model="form.website" placeholder="Enter your website URL">
+                </div>
+              </div>
+              <div class="field-group col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="message" class="field-label visually-hidden">Your Message</label>
+                  <textarea name="message" id="message" v-model="form.message" placeholder="Enter your message" required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="theme-btn btn-style-one" aria-label="Send your message to Graham Walker"><span>Send message</span></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  `,
+  setup() {
+    const contactText = ref("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.");
+
+    const contactInfo = ref([
+      {
+        id: 1,
+        iconClass: "fa fa-envelope",
+        href: "mailto:resume@domain.com",
+        text: "resume@domain.com"
+      },
+      {
+        id: 2,
+        iconClass: "fa fa-phone-alt",
+        href: "tel:+38349123456",
+        text: "+38349 123 456"
+      },
+      {
+        id: 3,
+        iconClass: "fa fa-map-marker-alt",
+        href: "#",
+        text: "Vicotria street, 23R"
+      }
+    ]);
+
+    const form = ref({
+      name: "",
+      email: "",
+      website: "",
+      message: ""
+    });
+
+    function submitForm() {
+      // In a real application, you would send the form data to a server
+      console.log("Form submitted:", form.value);
+      alert("Thank you for your message! We'll get back to you soon.");
+
+      // Reset form
+      form.value = {
+        name: "",
+        email: "",
+        website: "",
+        message: ""
+      };
+    }
+
+    return {
+      contactText,
+      contactInfo,
+      form,
+      submitForm
+    };
+  }
+};
+
+// Main App
+createApp({
+  components: {
+    HomeSection,
+    ResumeSection,
+    WorkSection,
+    StoriesSection,
+    ContactSection
+  },
+  setup() {
+    const isLoading = ref(true);
+    const showMobileMenu = ref(false);
+    const showSocialLinks = ref(false);
+    const weekendMode = ref(false);
+    const backgroundImage = ref("static/image/body-bg.png");
+    const profileImage = ref("static/picture/image-1.jpg");
+    const profileImageAlt = ref("Graham Walker - Professional headshot");
+    const currentYear = ref(new Date().getFullYear());
+    const companyName = ref("Company name");
+
+    const personalInfo = ref({
+      name: "Graham Walker",
+      designation: "App Developer"
+    });
+
+    const socialLinks = ref([
+      {
+        name: "Facebook",
+        iconClass: "fab fa-facebook-square",
+        url: "#"
+      },
+      {
+        name: "Instagram",
+        iconClass: "fab fa-instagram",
+        url: "#"
+      },
+      {
+        name: "Twitter",
+        iconClass: "fab fa-twitter-square",
+        url: "#"
+      },
+      {
+        name: "LinkedIn",
+        iconClass: "fab fa-linkedin",
+        url: "#"
+      }
+    ]);
+
+    const navigationSections = ref([
+      {
+        id: "home",
+        name: "Home",
+        href: "#home-section",
+        class: "home current"
+      },
+      {
+        id: "resume",
+        name: "Resume",
+        href: "#resume-section",
+        class: "resume"
+      },
+      {
+        id: "work",
+        name: "Work",
+        href: "#work-section",
+        class: "work"
+      },
+      {
+        id: "stories",
+        name: "Stories",
+        href: "#stories-section",
+        class: "stories"
+      },
+      {
+        id: "contact",
+        name: "Contact",
+        href: "#contact-section",
+        class: "contact"
+      }
+    ]);
+
+    function toggleMobileMenu() {
+      showMobileMenu.value = !showMobileMenu.value;
+    }
+
+    function toggleSocialLinks() {
+      showSocialLinks.value = !showSocialLinks.value;
+    }
+
+    function toggleWeekendMode() {
+      weekendMode.value = !weekendMode.value;
+      // In a real application, you might switch to a different theme
+    }
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    onMounted(() => {
+      // Simulate loading
+      setTimeout(() => {
+        isLoading.value = false;
+      }, 1000);
+    });
+
+    return {
+      isLoading,
+      showMobileMenu,
+      showSocialLinks,
+      weekendMode,
+      backgroundImage,
+      profileImage,
+      profileImageAlt,
+      currentYear,
+      companyName,
+      personalInfo,
+      socialLinks,
+      navigationSections,
+      toggleMobileMenu,
+      toggleSocialLinks,
+      toggleWeekendMode,
+      scrollToTop
+    };
+  }
+}).mount('#app');
+</script>
+
+<script src="static/js/jquery.js" defer></script>
+<script src="static/js/popper.min.js" defer></script>
+<script src="static/js/bootstrap.min.js" defer></script>
+<script src="static/js/jquery.fancybox.js" defer></script>
+<script src="static/js/jquery.scrollTo.js" defer></script>
+<script src="static/js/pagenav.js" defer></script>
+<script src="static/js/owl.js" defer></script>
+<script src="static/js/mixitup.js" defer></script>
+<script src="static/js/knob.js" defer></script>
+<script src="static/js/wow.js" defer></script>
+<script src="static/js/appear.js" defer></script>
+<script src="static/js/custom-script.js" defer></script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Person",
+"name": "Graham Walker",
+"jobTitle": "App Developer",
+"url": "",
+"image": "static/picture/image-1.jpg",
+"sameAs": [
+"",
+"",
+""
+],
+"knowsAbout": [
+"Web Development",
+"App Development",
+"UX/UI Design",
+"Digital Marketing"
+]
+}
+</script>
+</body>
+</html>

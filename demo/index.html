@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端简历系统</title>
+  <!-- Element Plus -->
+  <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+  <!-- Vue 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Element Plus -->
+  <script src="https://unpkg.com/element-plus"></script>
+  <!-- html2pdf 用于PDF导出 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- Font Awesome 图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    .app-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .left-column, .right-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ebeef5;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #303133;
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 20px;
+      border: 4px solid #409eff;
+    }
+
+    .basic-info {
+      flex: 1;
+    }
+
+    .basic-info h2 {
+      margin-bottom: 10px;
+      color: #303133;
+    }
+
+    .info-item {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .info-item i {
+      width: 20px;
+      margin-right: 10px;
+      color: #409eff;
+    }
+
+    .skill-item {
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .project-item {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ebeef5;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #409eff;
+    }
+
+    .project-time {
+      font-size: 0.9rem;
+      color: #909399;
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      margin-bottom: 10px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tech-tag {
+      padding: 2px 8px;
+      background-color: #ecf5ff;
+      color: #409eff;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .daily-post {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ebeef5;
+    }
+
+    .daily-post:last-child {
+      border-bottom: none;
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .post-time {
+      font-size: 0.9rem;
+      color: #909399;
+    }
+
+    .post-content {
+      margin-bottom: 10px;
+    }
+
+    .post-images {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .post-image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: white;
+      border-radius: 50px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .music-control {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .music-info {
+      font-size: 0.9rem;
+      color: #606266;
+    }
+
+    .download-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+
+      .left-column, .right-column {
+        width: 100%;
+      }
+
+      .profile-info {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="app-container" id="resume-content">
+      <!-- 头部信息 -->
+      <header class="header">
+        <h1>{{ resumeData.personalInfo.name }}</h1>
+        <p>{{ resumeData.personalInfo.title }}</p>
+      </header>
+
+      <div class="main-content">
+        <!-- 左列 -->
+        <div class="left-column">
+          <!-- 个人信息卡片 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">个人信息</h3>
+            </div>
+            <div class="profile-info">
+              <img :src="resumeData.personalInfo.avatar" alt="头像" class="avatar">
+              <div class="basic-info">
+                <h2>{{ resumeData.personalInfo.name }}</h2>
+                <div class="info-item">
+                  <i class="fas fa-briefcase"></i>
+                  <span>{{ resumeData.personalInfo.position }}</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>{{ resumeData.personalInfo.location }}</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-envelope"></i>
+                  <span>{{ resumeData.personalInfo.email }}</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-phone"></i>
+                  <span>{{ resumeData.personalInfo.phone }}</span>
+                </div>
+                <div class="info-item">
+                  <i class="fab fa-github"></i>
+                  <span>{{ resumeData.personalInfo.github }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 专业技能卡片 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">专业技能</h3>
+            </div>
+            <div v-for="skill in resumeData.skills" :key="skill.name" class="skill-item">
+              <div class="skill-name">{{ skill.name }}</div>
+              <el-progress :percentage="skill.level" :color="skill.color"></el-progress>
+            </div>
+          </div>
+
+          <!-- 教育经历卡片 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">教育经历</h3>
+            </div>
+            <div v-for="edu in resumeData.education" :key="edu.school" class="project-item">
+              <div class="project-title">{{ edu.school }}</div>
+              <div class="project-time">{{ edu.time }} | {{ edu.major }}</div>
+              <div class="project-desc">{{ edu.description }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右列 -->
+        <div class="right-column">
+          <!-- 项目经验卡片 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">项目经验</h3>
+            </div>
+            <div v-for="project in resumeData.projects" :key="project.name" class="project-item">
+              <div class="project-title">{{ project.name }}</div>
+              <div class="project-time">{{ project.time }}</div>
+              <div class="project-desc">{{ project.description }}</div>
+              <div class="project-desc">{{ project.responsibility }}</div>
+              <div class="tech-tags">
+                <span v-for="tech in project.technologies" :key="tech" class="tech-tag">{{ tech }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 日常动态卡片 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">日常动态</h3>
+              <el-button type="primary" size="small" @click="showPostDialog = true">发布动态</el-button>
+            </div>
+            <div v-for="post in resumeData.dailyPosts" :key="post.id" class="daily-post">
+              <div class="post-header">
+                <span>{{ post.title }}</span>
+                <span class="post-time">{{ post.time }}</span>
+              </div>
+              <div class="post-content">{{ post.content }}</div>
+              <div v-if="post.images && post.images.length > 0" class="post-images">
+                <img v-for="(img, index) in post.images" :key="index" :src="img" alt="动态图片" class="post-image" @click="previewImage(img)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 背景音乐播放器 -->
+    <div class="music-player">
+      <i class="fas fa-music music-control" @click="toggleMusic"></i>
+      <div class="music-info">{{ isPlaying ? '正在播放' : '已暂停' }}: {{ musicTitle }}</div>
+    </div>
+
+    <!-- 下载PDF按钮 -->
+    <el-button class="download-btn" type="primary" icon="el-icon-download" circle @click="downloadPDF"></el-button>
+
+    <!-- 发布动态对话框 -->
+    <el-dialog v-model="showPostDialog" title="发布日常动态" width="50%">
+      <el-form :model="newPost" label-width="80px">
+        <el-form-item label="标题">
+          <el-input v-model="newPost.title" placeholder="请输入标题"></el-input>
+        </el-form-item>
+        <el-form-item label="内容">
+          <el-input type="textarea" v-model="newPost.content" :rows="4" placeholder="分享你的想法..."></el-input>
+        </el-form-item>
+        <el-form-item label="图片链接">
+          <el-input v-model="newPost.imageUrls" placeholder="多个图片链接用逗号分隔"></el-input>
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="showPostDialog = false">取消</el-button>
+          <el-button type="primary" @click="addPost">发布</el-button>
+        </span>
+      </template>
+    </el-dialog>
+
+    <!-- 图片预览对话框 -->
+    <el-dialog v-model="showImagePreview" title="图片预览" width="50%">
+      <img :src="previewImageUrl" alt="预览图片" style="width: 100%;">
+    </el-dialog>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+    const { ElMessage } = ElementPlus;
+
+    createApp({
+      data() {
+        return {
+          isPlaying: false,
+          musicTitle: "背景音乐",
+          audioElement: null,
+          showPostDialog: false,
+          showImagePreview: false,
+          previewImageUrl: '',
+          newPost: {
+            title: '',
+            content: '',
+            imageUrls: ''
+          },
+          resumeData: {
+            personalInfo: {
+              name: "张三",
+              title: "前端开发工程师",
+              avatar: "https://picsum.photos/seed/avatar/200/200.jpg",
+              position: "高级前端工程师",
+              location: "北京",
+              email: "zhangsan@example.com",
+              phone: "138-xxxx-xxxx",
+              github: "github.com/zhangsan"
+            },
+            skills: [
+              { name: "HTML/CSS", level: 95, color: "#f56c6c" },
+              { name: "JavaScript", level: 90, color: "#e6a23c" },
+              { name: "Vue.js", level: 85, color: "#5cb87a" },
+              { name: "React", level: 80, color: "#1989fa" },
+              { name: "Node.js", level: 75, color: "#6f7ad3" },
+              { name: "Webpack", level: 70, color: "#909399" }
+            ],
+            education: [
+              {
+                school: "某某大学",
+                time: "2014.09 - 2018.06",
+                major: "计算机科学与技术",
+                description: "本科学历，主修计算机相关课程，获得优秀毕业生称号"
+              }
+            ],
+            projects: [
+              {
+                name: "项目一：企业级管理后台系统",
+                time: "2022.03 - 至今",
+                description: "基于Vue3+TypeScript+Element Plus开发的企业级管理后台系统，包含权限管理、数据可视化、工作流等功能模块。",
+                responsibility: "负责前端架构设计、核心模块开发、性能优化等工作。",
+                technologies: ["Vue3", "TypeScript", "Element Plus", "ECharts", "Vuex"]
+              },
+              {
+                name: "项目二：移动端商城应用",
+                time: "2021.06 - 2022.02",
+                description: "使用Vue3+Vant开发的移动端商城应用，支持商品展示、购物车、订单管理等功能。",
+                responsibility: "负责前端整体开发、接口联调、性能优化等工作。",
+                technologies: ["Vue3", "Vant", "Vuex", "Axios", "Webpack"]
+              },
+              {
+                name: "项目三：数据可视化平台",
+                time: "2020.10 - 2021.05",
+                description: "基于React+ECharts开发的数据可视化平台，用于展示企业各类业务数据。",
+                responsibility: "负责图表组件开发、数据交互、页面布局等工作。",
+                technologies: ["React", "ECharts", "Redux", "Ant Design", "D3.js"]
+              },
+              {
+                name: "项目四：在线教育平台",
+                time: "2020.01 - 2020.09",
+                description: "使用Vue2+Element UI开发的在线教育平台，包含课程学习、考试系统、学习进度跟踪等功能。",
+                responsibility: "负责课程播放器、考试模块、学习进度跟踪等功能开发。",
+                technologies: ["Vue2", "Element UI", "Vuex", "Axios", "Video.js"]
+              },
+              {
+                name: "项目五：社区论坛系统",
+                time: "2019.05 - 2019.12",
+                description: "基于React+Node.js开发的社区论坛系统，支持发帖、评论、点赞等功能。",
+                responsibility: "负责前端页面开发、用户交互、数据展示等工作。",
+                technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"]
+              },
+              {
+                name: "项目六：个人博客网站",
+                time: "2018.07 - 2019.04",
+                description: "使用Vue2开发的个人博客网站，支持文章发布、分类管理、评论互动等功能。",
+                responsibility: "独立完成整个前端开发，包括UI设计、页面实现、交互效果等。",
+                technologies: ["Vue2", "Vuex", "Vue Router", "Axios", "Marked"]
+              }
+            ],
+            dailyPosts: [
+              {
+                id: 1,
+                title: "今天学习了Vue3新特性",
+                time: "2023-05-20 18:30",
+                content: "Vue3的Composition API真的太强大了，代码组织更加灵活，逻辑复用也更加方便。特别是setup函数和ref、reactive这些响应式API，让组件开发变得更加简单明了。",
+                images: [
+                  "https://picsum.photos/seed/vue3/200/200.jpg",
+                  "https://picsum.photos/seed/composition/200/200.jpg"
+                ]
+              },
+              {
+                id: 2,
+                title: "分享一个CSS技巧",
+                time: "2023-05-18 14:20",
+                content: "今天发现了一个很棒的CSS技巧，使用CSS Grid布局可以轻松实现复杂的页面布局，而且代码量比传统方式少很多。特别是grid-template-areas属性，让布局变得非常直观。",
+                images: [
+                  "https://picsum.photos/seed/cssgrid/200/200.jpg"
+                ]
+              },
+              {
+                id: 3,
+                title: "前端性能优化实践",
+                time: "2023-05-15 10:45",
+                content: "最近在项目中做了一些性能优化工作，包括代码分割、懒加载、图片优化等。通过这些优化，页面加载速度提升了约40%，用户体验明显改善。推荐大家使用Lighthouse工具定期检查网站性能。",
+                images: []
+              }
+            ]
+          }
+        };
+      },
+      mounted() {
+        // 初始化音频元素
+        this.audioElement = new Audio();
+        this.audioElement.src = "https://music.163.com/song/media/outer/url?id=437250607.mp3"; // 示例音乐链接
+        this.audioElement.loop = true;
+        this.audioElement.volume = 0.3;
+
+        // 监听音频加载完成事件
+        this.audioElement.addEventListener('loadedmetadata', () => {
+          this.musicTitle = "背景音乐 - 示例音乐";
+        });
+      },
+      methods: {
+        // 切换音乐播放状态
+        toggleMusic() {
+          if (this.isPlaying) {
+            this.audioElement.pause();
+          } else {
+            this.audioElement.play();
+          }
+          this.isPlaying = !this.isPlaying;
+        },
+
+        // 下载PDF
+        downloadPDF() {
+          const element = document.getElementById('resume-content');
+          const opt = {
+            margin: 10,
+            filename: '前端简历.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          };
+
+          // 临时隐藏音乐播放器和下载按钮
+          document.querySelector('.music-player').style.display = 'none';
+          document.querySelector('.download-btn').style.display = 'none';
+
+          html2pdf().set(opt).from(element).save().then(() => {
+            // 恢复显示音乐播放器和下载按钮
+            document.querySelector('.music-player').style.display = 'flex';
+            document.querySelector('.download-btn').style.display = 'block';
+
+            ElMessage.success('简历PDF已生成并下载');
+          }).catch(error => {
+            console.error('生成PDF失败:', error);
+            ElMessage.error('生成PDF失败，请重试');
+
+            // 恢复显示音乐播放器和下载按钮
+            document.querySelector('.music-player').style.display = 'flex';
+            document.querySelector('.download-btn').style.display = 'block';
+          });
+        },
+
+        // 添加新动态
+        addPost() {
+          if (!this.newPost.title || !this.newPost.content) {
+            ElMessage.warning('请填写标题和内容');
+            return;
+          }
+
+          // 处理图片URL
+          let images = [];
+          if (this.newPost.imageUrls) {
+            images = this.newPost.imageUrls.split(',').map(url => url.trim()).filter(url => url);
+          }
+
+          // 添加新动态
+          const newPost = {
+            id: Date.now(),
+            title: this.newPost.title,
+            time: new Date().toLocaleString(),
+            content: this.newPost.content,
+            images: images
+          };
+
+          this.resumeData.dailyPosts.unshift(newPost);
+
+          // 重置表单
+          this.newPost = {
+            title: '',
+            content: '',
+            imageUrls: ''
+          };
+
+          // 关闭对话框
+          this.showPostDialog = false;
+
+          ElMessage.success('动态发布成功');
+        },
+
+        // 预览图片
+        previewImage(url) {
+          this.previewImageUrl = url;
+          this.showImagePreview = true;
+        }
+      }
+    }).use(ElementPlus).mount('#app');
+  </script>
+</body>
+</html>
