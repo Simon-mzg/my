@@ -1,1185 +1,1523 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="utf-8">
-<title>Graham Walker - 个人简历</title>
-<!-- Stylesheets -->
-<link href="static/css/bootstrap.css" rel="stylesheet">
-<link href="static/css/style.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link href="static/css/responsive.css" rel="stylesheet">
-<style>
-    /* 现代化样式优化 */
-    .app-header {
-        background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
-        color: white;
-        padding: 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-    }
-    
-    .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        height: 64px;
-    }
-    
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    
-    .nav-menu {
-        display: flex;
-        gap: 20px;
-        list-style: none;
-    }
-    
-    .nav-menu li {
-        position: relative;
-    }
-    
-    .nav-menu a {
-        color: white;
-        text-decoration: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        transition: background 0.3s;
-    }
-    
-    .nav-menu a:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .nav-menu a.active {
-        background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .main-content {
-        margin-top: 80px;
-        padding: 40px 0;
-    }
-    
-    .section {
-        background: white;
-        border-radius: 12px;
-        padding: 40px;
-        margin-bottom: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .section:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-    
-    .section-title {
-        font-size: 28px;
-        color: #1f2937;
-        margin-bottom: 30px;
-        font-weight: bold;
-        border-left: 4px solid #1677ff;
-        padding-left: 16px;
-    }
-    
-    .card {
-        background: #f8f9fa;
-        border-radius: 8px;
-        padding: 24px;
-        margin-bottom: 20px;
-        border-left: 4px solid #1677ff;
-        transition: all 0.3s;
-    }
-    
-    .card:hover {
-        background: #e3f2fd;
-        transform: translateX(4px);
-    }
-    
-    .skill-bar {
-        background: #e5e7eb;
-        border-radius: 10px;
-        height: 8px;
-        margin: 10px 0;
-        overflow: hidden;
-    }
-    
-    .skill-progress {
-        background: linear-gradient(90deg, #1677ff, #4096ff);
-        height: 100%;
-        border-radius: 10px;
-        transition: width 1s ease-in-out;
-    }
-    
-    .btn-primary {
-        background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
-        border: none;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: all 0.3s;
-    }
-    
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
-    }
-    
-    .feature-icon {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 16px;
-    }
-    
-    .feature-icon i {
-        font-size: 24px;
-        color: white;
-    }
-    
-    /* 响应式设计 */
-    @media (max-width: 768px) {
+    <meta charset="utf-8">
+    <title>Graham Walker - 个人简历</title>
+    <!-- Stylesheets -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="static/css/responsive.css" rel="stylesheet">
+    <style>
+        /* 现代化样式优化 */
+        .app-header {
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
         .header-container {
-            flex-direction: column;
-            padding: 10px;
-            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
         }
-        
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .nav-menu {
-            margin: 10px 0;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex;
+            gap: 20px;
+            list-style: none;
         }
-        
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         .main-content {
-            margin-top: 120px;
-            padding: 20px 0;
+            margin-top: 80px;
+            padding: 40px 0;
         }
-        
+
         .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #1f2937;
+            margin-bottom: 30px;
+            font-weight: bold;
+            border-left: 4px solid #1677ff;
+            padding-left: 16px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1677ff;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            background: #e3f2fd;
+            transform: translateX(4px);
+        }
+
+        .skill-bar {
+            background: #e5e7eb;
+            border-radius: 10px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            background: linear-gradient(90deg, #1677ff, #4096ff);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .feature-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        /* 简历部分样式 */
+        .subsection-title {
+            font-size: 22px;
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 2px solid #1677ff;
+            padding-bottom: 8px;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .section-title {
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+        }
+
+        .award-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(22, 119, 255, 0.15);
+            border-color: #1677ff;
+        }
+
+        .award-year {
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .award-card h5 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .award-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .awards-section {
+            background: #fafbfc;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* 确保简历部分宽度与上方一致 */
+        #resume-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 音乐播放器样式 */
+        .music-player {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(22, 119, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .music-player:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .music-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(22, 119, 255, 0.4);
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #1677ff;
+        }
+
+        .volume-control input[type="range"] {
+            width: 80px;
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .volume-control input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #1677ff;
+            cursor: pointer;
+        }
+
+        /* 返回顶部按钮样式 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(22, 119, 255, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(22, 119, 255, 0.4);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* 统一宽度背景 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 新的简历部分样式 */
+        .expertise-section,
+        .education-section,
+        .experience-section,
+        .interests-section {
+            background: #fafbfc;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .expertise-card,
+        .education-card,
+        .experience-card,
+        .interest-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .expertise-card:hover,
+        .education-card:hover,
+        .experience-card:hover,
+        .interest-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(22, 119, 255, 0.15);
+            border-color: #1677ff;
+        }
+
+        .expertise-card h5,
+        .education-card h5,
+        .experience-card h5 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .expertise-card li {
+            padding: 5px 0;
+            color: #6b7280;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .expertise-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1677ff;
+            font-weight: bold;
+        }
+
+        .edu-date,
+        .exp-date {
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .interest-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .interest-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .interest-icon i {
             font-size: 24px;
+            color: white;
         }
-    }
-</style>
+
+        .interest-card h5 {
+            color: #1f2937;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* 作品部分样式 */
+        .portfolio-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h5 {
+            color: #1f2937;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .portfolio-info p {
+            color: #6b7280;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* 故事部分样式 */
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .testimonial-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .testimonial-avatar {
+            flex-shrink: 0;
+        }
+
+        .testimonial-avatar img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        .testimonial-text p {
+            font-size: 18px;
+            font-style: italic;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* 联系部分样式 */
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(22, 119, 255, 0.1);
+        }
+
+        .contact-card h5 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-form-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .contact-form-card h5 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 2px solid #1677ff;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 12px 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #1677ff;
+            box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.1);
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .testimonial-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .expertise-section,
+            .education-section,
+            .experience-section,
+            .interests-section {
+                padding: 20px;
+            }
+
+            .expertise-card,
+            .education-card,
+            .experience-card,
+            .interest-card {
+                padding: 15px;
+            }
+
+            .contact-form-card {
+                padding: 20px;
+            }
+
+            .portfolio-card img {
+                height: 150px;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px;
+                height: auto;
+            }
+
+            .nav-menu {
+                margin: 10px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-content {
+                margin-top: 120px;
+                padding: 20px 0;
+            }
+
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .awards-section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .award-card {
+                padding: 15px;
+            }
+
+            .music-player {
+                top: 120px;
+                right: 10px;
+                padding: 10px;
+            }
+
+            .music-controls {
+                gap: 10px;
+            }
+
+            .volume-control input[type="range"] {
+                width: 60px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
 </head>
 
 <body class="home-body">
 
-<div class="body-bg" style="background-image: url(static/image/body-bg.png);"></div>
+    <div class="body-bg" style="background-image: url(static/image/body-bg.png);"></div>
 
-<div class="page-wrapper">
-    
-    <!-- Preloader -->
-    <div class="preloader"><div class="icon"></div></div>
+    <div class="page-wrapper">
 
-    <!-- 现代化顶部导航 -->
-    <header class="app-header">
-        <div class="header-container">
-            <div class="logo">
-                <i class="fas fa-user-circle"></i>
-                <span>Graham Walker</span>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="#home-section" class="active">首页</a></li>
-                <li><a href="#resume-section">简历</a></li>
-                <li><a href="#work-section">作品</a></li>
-                <li><a href="#stories-section">故事</a></li>
-                <li><a href="#contact-section">联系</a></li>
-            </ul>
-            
-            <div class="header-actions">
-                <button class="btn btn-primary">
-                    <i class="fas fa-download"></i>
-                    下载简历
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="icon"></div>
+        </div>
+
+        <!-- 音乐播放器 -->
+        <div class="music-player" id="musicPlayer">
+            <audio id="bgMusic" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                您的浏览器不支持音频播放
+            </audio>
+            <div class="music-controls">
+                <button class="music-btn" id="playPauseBtn">
+                    <i class="fas fa-play"></i>
                 </button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                </div>
             </div>
         </div>
-    </header>
 
-    <!-- 主内容区域 -->
-    <main class="main-content">
-        <div class="container">
-            <!-- 个人简介区域 -->
-            <section class="section" id="home-section">
-                <div class="row align-items-center">
-                    <div class="col-md-4 text-center">
-                        <div class="profile-image">
-                            <img src="static/picture/image-1.jpg" alt="Graham Walker" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
-                        </div>
-                        <div class="mt-3">
-                            <h3>Graham Walker</h3>
-                            <p class="text-muted">应用开发工程师</p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="text-primary me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                                <a href="#" class="text-primary me-3"><i class="fab fa-github fa-lg"></i></a>
-                                <a href="#" class="text-primary me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                                <a href="#" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <h2 class="section-title">欢迎来到我的个人空间</h2>
-                        <p class="lead">我是一名热爱技术的应用开发工程师，专注于创建优秀的用户体验和高质量的软件解决方案。</p>
-                        <p>拥有丰富的全栈开发经验，擅长将创意转化为现实。我相信技术的力量可以改变世界，让生活变得更美好。</p>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <h5><i class="fas fa-map-marker-alt text-primary me-2"></i> 位置</h5>
-                                    <p>美国，加利福尼亚</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <h5><i class="fas fa-envelope text-primary me-2"></i> 邮箱</h5>
-                                    <p>graham.walker@email.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- 返回顶部按钮 -->
+        <button class="back-to-top" id="backToTop">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <!-- 现代化顶部导航 -->
+        <header class="app-header">
+            <div class="header-container">
+                <div class="logo">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Graham Walker</span>
                 </div>
-            </section>
 
-            <!-- 技能展示 -->
-            <section class="section">
-                <h2 class="section-title">专业技能</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="skill-item">
-                            <div class="d-flex justify-content-between">
-                                <span>WordPress</span>
-                                <span>82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 82%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="d-flex justify-content-between">
-                                <span>Photoshop</span>
-                                <span>78%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 78%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="d-flex justify-content-between">
-                                <span>HTML/CSS</span>
-                                <span>97%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 97%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="skill-item">
-                            <div class="d-flex justify-content-between">
-                                <span>JavaScript</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="d-flex justify-content-between">
-                                <span>React</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="d-flex justify-content-between">
-                                <span>Node.js</span>
-                                <span>88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                <ul class="nav-menu">
+                    <li><a href="#home-section" class="active">首页</a></li>
+                    <li><a href="#resume-section">简历</a></li>
+                    <li><a href="#work-section">作品</a></li>
+                    <li><a href="#stories-section">故事</a></li>
+                    <li><a href="#contact-section">联系</a></li>
+                </ul>
 
-            <!-- 专业领域 -->
-            <section class="section">
-                <h2 class="section-title">专业领域</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            <h5>UI/UX 设计</h5>
-                            <p>创建直观、美观的用户界面和用户体验设计</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h5>移动应用开发</h5>
-                            <p>开发高性能的iOS和Android移动应用程序</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h5>Web 开发</h5>
-                            <p>构建响应式、高性能的网站和Web应用</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-                                <!--About Me-->
-                                <div class="about-me">
-                                    <div class="row clearfix">
-                                        <!--Skills-->
-                                        <div class="skills-column col-xl-5 col-lg-12 col-md-12">
-                                            <h4>Skills</h4>
-                                            <div class="skills">
-
-                                                <div class="skill-block">
-                                                    <div class="skill-block-inner">
-                                                        <div class="skill-title">wordpress</div>
-                                                        <div class="bar">
-                                                            <div class="bar-inner count-bar" data-percent="82%">
-                                                                <div class="count-box"><span class="count-text" data-stop="82" data-speed="2000">0</span>%</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="skill-block">
-                                                    <div class="skill-block-inner">
-                                                        <div class="skill-title">Photoshop</div>
-                                                        <div class="bar">
-                                                            <div class="bar-inner count-bar" data-percent="78%">
-                                                                <div class="count-box"><span class="count-text" data-stop="78" data-speed="2000">0</span>%</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="skill-block">
-                                                    <div class="skill-block-inner">
-                                                        <div class="skill-title">HTML</div>
-                                                        <div class="bar">
-                                                            <div class="bar-inner count-bar" data-percent="97%">
-                                                                <div class="count-box"><span class="count-text" data-stop="97" data-speed="2000">0</span>%</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <!--Expertise-->
-                                        <div class="expertise-column col-xl-7 col-lg-12 col-md-12">
-                                            <h4>Expertise</h4>
-                                            <div class="expertise">
-
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                                        <ul>
-                                                            <li>install and configure</li>
-                                                            <li>web usability</li>
-                                                            <li>digital painting</li>
-                                                            <li>grid and layout</li>
-                                                            <li>mobile app design</li>
-                                                            <li>graphical design</li>
-                                                            <li>seo optimization</li>
-                                                            <li>social media</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                                        <ul>
-                                                            <li>ux and ui design</li>
-                                                            <li>logo design</li>
-                                                            <li>3D animation</li>
-                                                            <li>audio video editing</li>
-                                                            <li>photography</li>
-                                                            <li>web development</li>
-                                                            <li>digital marketing</li>
-                                                            <li>app development</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <!--Features-->
-                                    <div class="features">
-                                        <div class="row clearfix">
-                                            <!--Feature Block-->
-                                            <div class="feature-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                    <div class="icon-box"><span class="icon"><img src="static/picture/lcd-2.png" alt=""></span></div>
-                                                    <h5>Design Concept</h5>
-                                                    <div class="text">Awesome designs for your company</div>
-                                                </div>
-                                            </div>
-                                            <!--Feature Block-->
-                                            <div class="feature-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                    <div class="icon-box"><span class="icon"><img src="static/picture/mobile-2.png" alt=""></span></div>
-                                                    <h5>App Development</h5>
-                                                    <div class="text">Well-coded apps suitable for your needs</div>
-                                                </div>
-                                            </div>
-                                            <!--Feature Block-->
-                                            <div class="feature-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                    <div class="icon-box"><span class="icon"><img src="static/picture/support-2.png" alt=""></span></div>
-                                                    <h5>Marketing</h5>
-                                                    <div class="text">Affordable, targeted media for everyone</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Languages-->
-                                    <div class="languages">
-                                        <h4>Languages</h4>
-                                        <div class="row clearfix">
-                                            <!--Language Block-->
-                                            <div class="language-block col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                    <div class="graph-outer">
-                                                        <input type="text" class="dial" data-fgcolor="#fd7030" data-bgcolor="#f5f5f5" data-width="200" data-height="200" data-linecap="normal" value="99">
-                                                        <div class="inner-text count-box"><span class="count-text" data-stop="99" data-speed="2000"></span>%</div>
-                                                    </div>
-                                                    <div class="text">English <br>Experience</div>
-                                                </div>
-                                            </div>
-                                            <!--Language Block-->
-                                            <div class="language-block col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                    <div class="graph-outer">
-                                                        <input type="text" class="dial" data-fgcolor="#fd7030" data-bgcolor="#f5f5f5" data-width="200" data-height="200" data-linecap="normal" value="80">
-                                                        <div class="inner-text count-box"><span class="count-text" data-stop="80" data-speed="2000"></span>%</div>
-                                                    </div>
-                                                    <div class="text">French <br>Experience</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--End About Me-->
-
-                                <!--Testimonials-->
-                                <div class="testimonials">
-                                    <div class="carousel-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="300ms">
-                                        <div class="testi-carousel owl-theme owl-carousel">
-                                            <!--Slide-->
-                                            <div class="slide-item">
-                                                <div class="content-box">
-                                                    <div class="image-box">
-                                                        <div class="image"><img src="static/picture/image-2.jpg" alt=""></div>
-                                                    </div>
-                                                    <div class="text">“ Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work. ”</div>
-                                                    <div class="info">Dave Smith - CEO @ vcard inc</div>
-                                                </div>
-                                            </div>
-
-                                            <!--Slide-->
-                                            <div class="slide-item">
-                                                <div class="content-box">
-                                                    <div class="image-box">
-                                                        <div class="image"><img src="static/picture/image-2.jpg" alt=""></div>
-                                                    </div>
-                                                    <div class="text">“ Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work. ”</div>
-                                                    <div class="info">Dave Smith - CEO @ vcard inc</div>
-                                                </div>
-                                            </div>
-
-                                            <!--Slide-->
-                                            <div class="slide-item">
-                                                <div class="content-box">
-                                                    <div class="image-box">
-                                                        <div class="image"><img src="static/picture/image-2.jpg" alt=""></div>
-                                                    </div>
-                                                    <div class="text">“ Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work. ”</div>
-                                                    <div class="info">Dave Smith - CEO @ vcard inc</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                            
-                            <!--Resume Section-->
-
-                            <div class="resume-content" id="resume-section">
-                                <div class="page-title sec-title"><h1><span>Resume</span></h1></div>
-                                <!--Award-->
-                                <div class="awards">
-                                    <div class="main-title">
-                                        <span class="icon"><img src="static/picture/award-1.png" alt=""></span>
-                                        <span class="txt">Awards</span>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <!--Block-->
-                                        <div class="award-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2021</span></div>
-                                                <h5>Best Designer</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="award-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2020</span></div>
-                                                <h5>Art of the Week</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="award-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2019</span></div>
-                                                <h5>Creative Poster Award</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="award-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2018</span></div>
-                                                <h5>Website of the Month</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt ut labore</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--Award-->
-                                <div class="expertise">
-                                    <div class="main-title">
-                                        <span class="icon"><img src="static/picture/expertise-1.png" alt=""></span>
-                                        <span class="txt">Expertise</span>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <!--Block-->
-                                        <div class="expertise-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <ul>
-                                                    <li>install and configure</li>
-                                                    <li>web usability</li>
-                                                    <li>digital painting</li>
-                                                    <li>grid and layout</li>
-                                                    <li>mobile app design</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <!--Block-->
-                                        <div class="expertise-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <ul>
-                                                    <li>ux and ui design</li>
-                                                    <li>logo design</li>
-                                                    <li>3D animation</li>
-                                                    <li>graphical design</li>
-                                                    <li>seo optimization</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <!--Block-->
-                                        <div class="expertise-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <ul>
-                                                    <li>social media</li>
-                                                    <li>audio video editing</li>
-                                                    <li>photography</li>
-                                                    <li>web development</li>
-                                                    <li>digital marketing</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!--Education-->
-                                <div class="education">
-                                    <div class="main-title">
-                                        <span class="icon"><img src="static/picture/education-1.png" alt=""></span>
-                                        <span class="txt">Education</span>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <!--Block-->
-                                        <div class="edu-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2017  -  2021 </span></div>
-                                                <h5>Master in Graphics</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt.</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="edu-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2015  -  2017 </span></div>
-                                                <h5>Web Design</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt.</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="edu-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2011  -  2013 </span></div>
-                                                <h5>University of Art</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt.</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="edu-block col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2011  -  2012 </span></div>
-                                                <h5>Photoshooting Course</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor incididunt.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--Interests-->
-                                <div class="interests">
-                                    <div class="main-title">
-                                        <span class="icon"><img src="static/picture/interest-1.png" alt=""></span>
-                                        <span class="txt">Interests</span>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <!--Block-->
-                                        <div class="interest-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon-box"><span class="icon def-icon"><img src="static/picture/book-1.png" alt=""></span><span class="icon hvr-icon"><img src="static/picture/book-11.png" alt=""></span></div>
-                                                <h5>Reading</h5>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="interest-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon-box"><span class="icon def-icon"><img src="static/picture/world-1.png" alt=""></span><span class="icon hvr-icon"><img src="static/picture/world-11.png" alt=""></span></div>
-                                                <h5>Travel</h5>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="interest-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon-box"><span class="icon def-icon"><img src="static/picture/camera-1.png" alt=""></span><span class="icon hvr-icon"><img src="static/picture/camera-11.png" alt=""></span></div>
-                                                <h5>Photography</h5>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="interest-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon-box"><span class="icon def-icon"><img src="static/picture/cycle-1.png" alt=""></span><span class="icon hvr-icon"><img src="static/picture/cycle-11.png" alt=""></span></div>
-                                                <h5>Cycling</h5>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="interest-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon-box"><span class="icon def-icon"><img src="static/picture/hiking-1.png" alt=""></span><span class="icon hvr-icon"><img src="static/picture/hiking-11.png" alt=""></span></div>
-                                                <h5>Hiking</h5>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="interest-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon-box"><span class="icon def-icon"><img src="static/picture/gaming-1.png" alt=""></span><span class="icon hvr-icon"><img src="static/picture/gaming-11.png" alt=""></span></div>
-                                                <h5>Gaming</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--Experience-->
-                                <div class="education experience">
-                                    <div class="main-title">
-                                        <span class="icon"><img src="static/picture/experience-1.png" alt=""></span>
-                                        <span class="txt">Experience</span>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <!--Block-->
-                                        <div class="edu-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2017  -  Current</span></div>
-                                                <h5>Themeforest</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="edu-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2015  -  2017 </span></div>
-                                                <h5>GraphicRiver</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
-                                            </div>
-                                        </div>
-                                        <!--Block-->
-                                        <div class="edu-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="date"><span>2012  -  2015 </span></div>
-                                                <h5>CodeCanyon</h5>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            
-                            <!--Work Section-->
-                            
-                            <div class="work-content" id="work-section">
-                                <div class="page-title sec-title"><h1><span>Work</span></h1></div>
-                                <!--Portfolio Section -->
-                                <section class="portfolio-section">
-                                    <!--MixitUp Galery-->
-                                    <div class="mixitup-gallery">
-                                        <!--Filter-->
-                                        <div class="filters clearfix">
-                                            <ul class="filter-tabs filter-btns clearfix">
-                                                <li class="active filter" data-role="button" data-filter="all">Show All</li>
-                                                <li class="filter" data-role="button" data-filter=".brandings">Brandings</li>
-                                                <li class="filter" data-role="button" data-filter=".print">Print</li>
-                                                <li class="filter" data-role="button" data-filter=".motion">Motion</li>
-                                                <li class="filter" data-role="button" data-filter=".websites">Websites</li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="filter-list row clearfix">
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all websites col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-1.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-1.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all brandings col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-2.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-2.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all print col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-3.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-3.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all motion col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-4.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-4.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all brandings motion websites col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-5.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-5.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all print motion websites col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-6.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-6.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all brandings print websites col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-7.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-7.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all brandings print motion col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-8.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-8.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--Portfolio block-->
-                                            <div class="portfolio-block mix all print motion websites col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/work-9.jpg" alt=""></div>
-                                                  <div class="hover-box">
-                                                    <div class="hvr-upper clearfix">
-                                                        <a href="static/picture/work-9.jpg" class="lightbox-image theme-btn" data-fancybox="gallery"><span class="fa fa-search"></span></a>
-                                                        <a href="work-single.html" class="theme-btn view-btn"><span class="far fa-file"></span></a>
-                                                    </div>
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="work-single.html">Branding Design</a></div>
-                                                        <div class="cat"><a href="#">Print</a></div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </section>
-
-                            </div>
-
-                            
-                            <!--Stories Section-->
-                            
-                            <div class="stories-content" id="stories-section">
-                                <div class="page-title sec-title"><h1><span>Stories</span></h1></div>
-                                <!--Stories Section -->
-                                <section class="stories-section">
-
-                                    <div class="row clearfix">
-                                        <div class="story-column col-xl-6 col-lg-12 col-md-12">
-                                            <!--News block-->
-                                            <div class="news-block">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/blog-image-1.jpg" alt=""></div>
-                                                  <div class="over-box">
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="story-single.html">Scotland's jungle islands are dealing with a major Covid hangover</a></div>
-                                                        <div class="info clearfix">
-                                                            <div class="i-blk"><span class="icon far fa-comment"></span> 5 comments</div>
-                                                            <div class="i-blk"><span class="icon far fa-user"></span> admin</div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--News block-->
-                                            <div class="news-block-two">
-                                                <div class="inner-box">
-                                                  <div class="image"><a href="story-single.html"><img src="static/picture/blog-image-6.jpg" alt=""></a></div>
-                                                  <div class="text-box">
-                                                        <div class="title"><a href="story-single.html">'It's the most hostile place': Life at the North Pole</a></div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--News block-->
-                                            <div class="news-block-two">
-                                                <div class="inner-box">
-                                                  <div class="image"><a href="story-single.html"><img src="static/picture/blog-image-7.jpg" alt=""></a></div>
-                                                  <div class="text-box">
-                                                        <div class="title"><a href="story-single.html">How much respect does Lakers' title deserve?</a></div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--News block-->
-                                            <div class="news-block-two">
-                                                <div class="inner-box">
-                                                  <div class="image"><a href="story-single.html"><img src="static/picture/blog-image-8.jpg" alt=""></a></div>
-                                                  <div class="text-box">
-                                                        <div class="title"><a href="story-single.html">Cruise ships torn apart after coronavirus sell off</a></div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="story-column col-xl-6 col-lg-12 col-md-12">
-                                            
-                                            <!--News block-->
-                                            <div class="news-block-two">
-                                                <div class="inner-box">
-                                                  <div class="image"><a href="story-single.html"><img src="static/picture/blog-image-3.jpg" alt=""></a></div>
-                                                  <div class="text-box">
-                                                        <div class="title"><a href="story-single.html">Why does Hong Kong wrap its towers in 'cocoons'?</a></div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--News block-->
-                                            <div class="news-block-two">
-                                                <div class="inner-box">
-                                                  <div class="image"><a href="story-single.html"><img src="static/picture/blog-image-4.jpg" alt=""></a></div>
-                                                  <div class="text-box">
-                                                        <div class="title"><a href="story-single.html">Using hand sanitizer may be giving you a false sense of security</a></div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--News block-->
-                                            <div class="news-block-two">
-                                                <div class="inner-box">
-                                                  <div class="image"><a href="story-single.html"><img src="static/picture/blog-image-5.jpg" alt=""></a></div>
-                                                  <div class="text-box">
-                                                        <div class="title"><a href="story-single.html">Why this space age airplane could change flying forever</a></div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                            <!--News block-->
-                                            <div class="news-block">
-                                                <div class="inner-box">
-                                                  <div class="image"><img src="static/picture/blog-image-2.jpg" alt=""></div>
-                                                  <div class="over-box">
-                                                    <div class="hvr-lower">
-                                                        <div class="title"><a href="story-single.html">Kaepernick's Nike jersey sells out quickly</a></div>
-                                                        <div class="info clearfix">
-                                                            <div class="i-blk"><span class="icon far fa-comment"></span> 5 comments</div>
-                                                            <div class="i-blk"><span class="icon far fa-user"></span> admin</div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </section>
-
-                            </div>
-
-
-                            <!--Contact Section-->
-                            
-                            <div class="contact-content" id="contact-section">
-                                <div class="page-title sec-title"><h1><span>Contact</span></h1></div>
-                                <!--Text-->
-                                <div class="upper-text">
-                                    <h4>Get in touch</h4>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                </div>
-
-                                <div class="info-box">
-                                    <div class="row clearfix">
-
-                                        <!--Info Block-->
-                                        <div class="info-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon"><span class="fa fa-envelope"></span></div>
-                                                <div class="text"><a href="mailto:resume@domain.com">resume@domain.com</a></div>
-                                            </div>
-                                        </div>
-                                        <!--Info Block-->
-                                        <div class="info-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon"><span class="fa fa-phone-alt"></span></div>
-                                                <div class="text"><a href="tel:+38349123456">+38349 123 456</a></div>
-                                            </div>
-                                        </div>
-                                        <!--Info Block-->
-                                        <div class="info-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                            <div class="inner-box">
-                                                <div class="icon"><span class="fa fa-map-marker-alt"></span></div>
-                                                <div class="text"><a href="#">Vicotria street, 23R</a></div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!--Form Box-->
-<div class="form-box">
-    <h4>Message me</h4>
-    <div class="contact-form">
-        <form method="post" action="sendmail.php">
-            <div class="row clearfix">
-                <div class="field-group col-lg-6 col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="name" class="field-label"><span class="icon fa fa-user"></span></label>
-                        <input type="text" name="name" id="name" value="" placeholder="Name" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="field-label"><span class="icon far fa-envelope"></span></label>
-                        <input type="email" name="email" id="email" value="" placeholder="E-mail" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="website" class="field-label"><span class="icon fa fa-link"></span></label>
-                        <input type="url" name="website" id="website" value="" placeholder="Website" required="">
-                    </div>
-                </div>
-                <div class="field-group col-lg-6 col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <textarea name="message" id="message" placeholder="Message" required=""></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="theme-btn btn-style-one"><span>Send message</span></button>
-                    </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        下载简历
+                    </button>
                 </div>
             </div>
-        </form>
-    </div>
-</div>
+        </header>
 
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <div class="container">
+                <!-- 个人简介区域 -->
+                <section class="section" id="home-section">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center">
+                            <div class="profile-image">
+                                <img src="static/picture/image-1.jpg" alt="Graham Walker"
+                                    class="img-fluid rounded-circle"
+                                    style="width: 200px; height: 200px; object-fit: cover;">
+                            </div>
+                            <div class="mt-3">
+                                <h3>Graham Walker</h3>
+                                <p class="text-muted">应用开发工程师</p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="text-primary me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                                    <a href="#" class="text-primary me-3"><i class="fab fa-github fa-lg"></i></a>
+                                    <a href="#" class="text-primary me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                                    <a href="#" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="section-title">欢迎来到我的个人空间</h2>
+                            <p class="lead">我是一名热爱技术的应用开发工程师，专注于创建优秀的用户体验和高质量的软件解决方案。</p>
+                            <p>拥有丰富的全栈开发经验，擅长将创意转化为现实。我相信技术的力量可以改变世界，让生活变得更美好。</p>
 
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <h5><i class="fas fa-map-marker-alt text-primary me-2"></i> 位置</h5>
+                                        <p>美国，加利福尼亚</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <h5><i class="fas fa-envelope text-primary me-2"></i> 邮箱</h5>
+                                        <p>graham.walker@email.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 技能展示 -->
+                <section class="section">
+                    <h2 class="section-title">专业技能</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>WordPress</span>
+                                    <span>82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 82%"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>Photoshop</span>
+                                    <span>78%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 78%"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>HTML/CSS</span>
+                                    <span>97%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 97%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>JavaScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>React</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>Node.js</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 专业领域 -->
+                <section class="section">
+                    <h2 class="section-title">专业领域</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card text-center">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h5>UI/UX 设计</h5>
+                                <p>创建直观、美观的用户界面和用户体验设计</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h5>移动应用开发</h5>
+                                <p>开发高性能的iOS和Android移动应用程序</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h5>Web 开发</h5>
+                                <p>构建响应式、高性能的网站和Web应用</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--About Me-->
+                <div class="about-me">
+                    <div class="row clearfix">
+                        <!--Skills-->
+                        <div class="skills-column col-xl-5 col-lg-12 col-md-12">
+                            <h4>Skills</h4>
+                            <div class="skills">
+
+                                <div class="skill-block">
+                                    <div class="skill-block-inner">
+                                        <div class="skill-title">wordpress</div>
+                                        <div class="bar">
+                                            <div class="bar-inner count-bar" data-percent="82%">
+                                                <div class="count-box"><span class="count-text" data-stop="82"
+                                                        data-speed="2000">0</span>%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-block">
+                                    <div class="skill-block-inner">
+                                        <div class="skill-title">Photoshop</div>
+                                        <div class="bar">
+                                            <div class="bar-inner count-bar" data-percent="78%">
+                                                <div class="count-box"><span class="count-text" data-stop="78"
+                                                        data-speed="2000">0</span>%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-block">
+                                    <div class="skill-block-inner">
+                                        <div class="skill-title">HTML</div>
+                                        <div class="bar">
+                                            <div class="bar-inner count-bar" data-percent="97%">
+                                                <div class="count-box"><span class="count-text" data-stop="97"
+                                                        data-speed="2000">0</span>%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--Expertise-->
+                        <div class="expertise-column col-xl-7 col-lg-12 col-md-12">
+                            <h4>Expertise</h4>
+                            <div class="expertise">
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <ul>
+                                            <li>install and configure</li>
+                                            <li>web usability</li>
+                                            <li>digital painting</li>
+                                            <li>grid and layout</li>
+                                            <li>mobile app design</li>
+                                            <li>graphical design</li>
+                                            <li>seo optimization</li>
+                                            <li>social media</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <ul>
+                                            <li>ux and ui design</li>
+                                            <li>logo design</li>
+                                            <li>3D animation</li>
+                                            <li>audio video editing</li>
+                                            <li>photography</li>
+                                            <li>web development</li>
+                                            <li>digital marketing</li>
+                                            <li>app development</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--Features-->
+                    <div class="features">
+                        <div class="row clearfix">
+                            <!--Feature Block-->
+                            <div class="feature-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="icon-box"><span class="icon"><img src="static/picture/lcd-2.png"
+                                                alt=""></span></div>
+                                    <h5>Design Concept</h5>
+                                    <div class="text">Awesome designs for your company</div>
+                                </div>
+                            </div>
+                            <!--Feature Block-->
+                            <div class="feature-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="icon-box"><span class="icon"><img src="static/picture/mobile-2.png"
+                                                alt=""></span></div>
+                                    <h5>App Development</h5>
+                                    <div class="text">Well-coded apps suitable for your needs</div>
+                                </div>
+                            </div>
+                            <!--Feature Block-->
+                            <div class="feature-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="icon-box"><span class="icon"><img src="static/picture/support-2.png"
+                                                alt=""></span></div>
+                                    <h5>Marketing</h5>
+                                    <div class="text">Affordable, targeted media for everyone</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Languages-->
+                    <div class="languages">
+                        <h4>Languages</h4>
+                        <div class="row clearfix">
+                            <!--Language Block-->
+                            <div class="language-block col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="graph-outer">
+                                        <input type="text" class="dial" data-fgcolor="#fd7030" data-bgcolor="#f5f5f5"
+                                            data-width="200" data-height="200" data-linecap="normal" value="99">
+                                        <div class="inner-text count-box"><span class="count-text" data-stop="99"
+                                                data-speed="2000"></span>%</div>
+                                    </div>
+                                    <div class="text">English <br>Experience</div>
+                                </div>
+                            </div>
+                            <!--Language Block-->
+                            <div class="language-block col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="graph-outer">
+                                        <input type="text" class="dial" data-fgcolor="#fd7030" data-bgcolor="#f5f5f5"
+                                            data-width="200" data-height="200" data-linecap="normal" value="80">
+                                        <div class="inner-text count-box"><span class="count-text" data-stop="80"
+                                                data-speed="2000"></span>%</div>
+                                    </div>
+                                    <div class="text">French <br>Experience</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--End About Me-->
+
+                <!--Testimonials-->
+                <div class="testimonials">
+                    <div class="carousel-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="300ms">
+                        <div class="testi-carousel owl-theme owl-carousel">
+                            <!--Slide-->
+                            <div class="slide-item">
+                                <div class="content-box">
+                                    <div class="image-box">
+                                        <div class="image"><img src="static/picture/image-2.jpg" alt=""></div>
+                                    </div>
+                                    <div class="text">“ Awesome to work with. Incredibly organized, easy to communicate
+                                        with, responsive with next iterations, and beautiful work. ”</div>
+                                    <div class="info">Dave Smith - CEO @ vcard inc</div>
+                                </div>
+                            </div>
+
+                            <!--Slide-->
+                            <div class="slide-item">
+                                <div class="content-box">
+                                    <div class="image-box">
+                                        <div class="image"><img src="static/picture/image-2.jpg" alt=""></div>
+                                    </div>
+                                    <div class="text">“ Awesome to work with. Incredibly organized, easy to communicate
+                                        with, responsive with next iterations, and beautiful work. ”</div>
+                                    <div class="info">Dave Smith - CEO @ vcard inc</div>
+                                </div>
+                            </div>
+
+                            <!--Slide-->
+                            <div class="slide-item">
+                                <div class="content-box">
+                                    <div class="image-box">
+                                        <div class="image"><img src="static/picture/image-2.jpg" alt=""></div>
+                                    </div>
+                                    <div class="text">“ Awesome to work with. Incredibly organized, easy to communicate
+                                        with, responsive with next iterations, and beautiful work. ”</div>
+                                    <div class="info">Dave Smith - CEO @ vcard inc</div>
+                                </div>
                             </div>
 
                         </div>
                     </div>
+                    <!-- 简历部分 -->
+                    <section class="section" id="resume-section">
+                        <h2 class="section-title">简历</h2>
 
-                    <!--Copyright-->
-                    <div class="site-footer">
-                        <div class="copyright">Copyright &copy; 2024.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
-                    </div>
+                        <!-- 奖项 -->
+                        <div class="awards-section">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-trophy text-primary me-2"></i>
+                                奖项荣誉
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card award-card">
+                                        <div class="award-year">2021</div>
+                                        <h5>最佳设计师</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt ut labore</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card award-card">
+                                        <div class="award-year">2020</div>
+                                        <h5>本周艺术奖</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt ut labore</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card award-card">
+                                        <div class="award-year">2019</div>
+                                        <h5>创意海报奖</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt ut labore</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card award-card">
+                                        <div class="award-year">2018</div>
+                                        <h5>月度最佳网站</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt ut labore</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- 专业技能 -->
+                        <div class="expertise-section">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-cogs text-primary me-2"></i>
+                                专业技能
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card expertise-card">
+                                        <h5><i class="fas fa-paint-brush text-primary me-2"></i>设计技能</h5>
+                                        <ul>
+                                            <li>UI/UX 设计</li>
+                                            <li>图形设计</li>
+                                            <li>数字绘画</li>
+                                            <li>网格布局</li>
+                                            <li>移动应用设计</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card expertise-card">
+                                        <h5><i class="fas fa-code text-primary me-2"></i>开发技能</h5>
+                                        <ul>
+                                            <li>Web 开发</li>
+                                            <li>应用开发</li>
+                                            <li>SEO 优化</li>
+                                            <li>社交媒体</li>
+                                            <li>数字营销</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card expertise-card">
+                                        <h5><i class="fas fa-camera text-primary me-2"></i>创意技能</h5>
+                                        <ul>
+                                            <li>3D 动画</li>
+                                            <li>音视频编辑</li>
+                                            <li>摄影</li>
+                                            <li>Logo 设计</li>
+                                            <li>创意海报</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 教育背景 -->
+                        <div class="education-section">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-graduation-cap text-primary me-2"></i>
+                                教育背景
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card education-card">
+                                        <div class="edu-date">2017 - 2021</div>
+                                        <h5>图形设计硕士</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card education-card">
+                                        <div class="edu-date">2015 - 2017</div>
+                                        <h5>Web 设计</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card education-card">
+                                        <div class="edu-date">2011 - 2013</div>
+                                        <h5>艺术大学</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card education-card">
+                                        <div class="edu-date">2011 - 2012</div>
+                                        <h5>摄影课程</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmod tempor
+                                            incididunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 工作经历 -->
+                        <div class="experience-section">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-briefcase text-primary me-2"></i>
+                                工作经历
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card experience-card">
+                                        <div class="exp-date">2017 - 至今</div>
+                                        <h5>Themeforest</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card experience-card">
+                                        <div class="exp-date">2015 - 2017</div>
+                                        <h5>GraphicRiver</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card experience-card">
+                                        <div class="exp-date">2012 - 2015</div>
+                                        <h5>CodeCanyon</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 兴趣爱好 -->
+                        <div class="interests-section">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-heart text-primary me-2"></i>
+                                兴趣爱好
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card interest-card text-center">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <h5>阅读</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card interest-card text-center">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <h5>旅行</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card interest-card text-center">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                        <h5>摄影</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card interest-card text-center">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-bicycle"></i>
+                                        </div>
+                                        <h5>骑行</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card interest-card text-center">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-hiking"></i>
+                                        </div>
+                                        <h5>徒步</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card interest-card text-center">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-gamepad"></i>
+                                        </div>
+                                        <h5>游戏</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 作品部分 -->
+                    <section class="section" id="work-section">
+                        <h2 class="section-title">作品展示</h2>
+                        <div class="portfolio-section">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card portfolio-card">
+                                        <img src="static/picture/work-1.jpg" alt="作品1" class="img-fluid">
+                                        <div class="portfolio-info">
+                                            <h5>品牌设计</h5>
+                                            <p>Print</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card portfolio-card">
+                                        <img src="static/picture/work-1.jpg" alt="作品2" class="img-fluid">
+                                        <div class="portfolio-info">
+                                            <h5>网站设计</h5>
+                                            <p>Websites</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card portfolio-card">
+                                        <img src="static/picture/work-1.jpg" alt="作品3" class="img-fluid">
+                                        <div class="portfolio-info">
+                                            <h5>动态设计</h5>
+                                            <p>Motion</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 故事部分 -->
+                    <section class="section" id="stories-section">
+                        <h2 class="section-title">客户评价</h2>
+                        <div class="testimonials-section">
+                            <div class="card testimonial-card">
+                                <div class="testimonial-content">
+                                    <div class="testimonial-avatar">
+                                        <img src="static/picture/image-2.jpg" alt="客户头像"
+                                            class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="testimonial-text">
+                                        <p>"Awesome to work with. Incredibly organized, easy to communicate with,
+                                            responsive with next iterations, and beautiful work."</p>
+                                        <div class="testimonial-author">
+                                            <strong>Dave Smith</strong> - CEO @ vcard inc
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 联系部分 -->
+                    <section class="section" id="contact-section">
+                        <h2 class="section-title">联系我</h2>
+                        <div class="contact-section">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card contact-card">
+                                        <h5><i class="fas fa-envelope text-primary me-2"></i> 邮箱</h5>
+                                        <p>graham.walker@email.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card contact-card">
+                                        <h5><i class="fas fa-phone text-primary me-2"></i> 电话</h5>
+                                        <p>+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <div class="card contact-form-card">
+                                        <h5>发送消息</h5>
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="您的姓名">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" placeholder="您的邮箱">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" rows="5"
+                                                            placeholder="您的消息"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary">发送消息</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
+        </main>
 
-            </div>
-        </div>
     </div>
-    <!--End Site Container -->
-    
-    
-</div>
-<!--End pagewrapper-->
 
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fas fa-arrow-up"></span></div>
 
-<script src="static/js/jquery.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/jquery.fancybox.js"></script>
-<script src="static/js/jquery.scrollTo.js"></script>
-<script src="static/js/pagenav.js"></script>
-<script src="static/js/owl.js"></script>
-<script src="static/js/mixitup.js"></script>
-<script src="static/js/knob.js"></script>
-<script src="static/js/wow.js"></script>
-<script src="static/js/appear.js"></script>
-<script src="static/js/custom-script.js"></script>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.fancybox.js"></script>
+    <script src="static/js/jquery.scrollTo.js"></script>
+    <script src="static/js/pagenav.js"></script>
+    <script src="static/js/owl.js"></script>
+    <script src="static/js/mixitup.js"></script>
+    <script src="static/js/knob.js"></script>
+    <script src="static/js/wow.js"></script>
+    <script src="static/js/appear.js"></script>
+    <script src="static/js/custom-script.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // 音乐播放器功能
+        const bgMusic = document.getElementById('bgMusic');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const backToTopBtn = document.getElementById('backToTop');
+
+        // 播放/暂停功能
+        playPauseBtn.addEventListener('click', function () {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                playPauseBtn.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%)';
+            } else {
+                bgMusic.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                playPauseBtn.style.background = 'linear-gradient(135deg, #1677ff 0%, #4096ff 100%)';
+            }
+        });
+
+        // 音量控制
+        volumeSlider.addEventListener('input', function () {
+            bgMusic.volume = volumeSlider.value;
+
+            // 音量图标变化
+            const volumeIcon = document.querySelector('.volume-control i');
+            if (volumeSlider.value == 0) {
+                volumeIcon.className = 'fas fa-volume-mute';
+            } else if (volumeSlider.value < 0.5) {
+                volumeIcon.className = 'fas fa-volume-down';
+            } else {
+                volumeIcon.className = 'fas fa-volume-up';
+            }
+        });
+
+        // 返回顶部功能
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 平滑滚动导航
+        document.querySelectorAll('.nav-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // 更新活跃状态
+                document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 滚动时更新导航活跃状态
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            // 设置默认音量
+            bgMusic.volume = 0.5;
+
+            // 添加加载动画
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                }, 1000);
+            }
+        });
+    </script>
 </body>
+
 </html>
